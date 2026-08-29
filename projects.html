@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Log | Om M. Patel</title>
+<meta name="description" content="Six aerospace engineering projects: high-altitude balloon systems, propulsion CFD, aircraft conceptual design, structural FEA validated against test, airfoil analysis, and circuits.">
+<meta name="author" content="Om M. Patel">
+<meta name="theme-color" content="#0A0E16">
+
+<meta property="og:title" content="Project Log | Om M. Patel">
+<meta property="og:description" content="Six aerospace engineering projects: high-altitude balloon systems, propulsion CFD, aircraft conceptual design, structural FEA validated against test, airfoil analysis, and circuits.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0E16'/><rect y='28' width='32' height='4' fill='%23F2B63B'/><text x='16' y='21' font-family='monospace' font-size='14' font-weight='700' fill='%23F2B63B' text-anchor='middle'>OP</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark" aria-hidden="true">OP</span>
+      <span>Om M. Patel</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="projects.html" class="nav-link is-active" aria-current="page">Projects</a>
+      <a href="resume.html" class="nav-link">Resume</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="section" style="padding-top:3.4rem" aria-labelledby="log-title">
+  <div class="container">
+    <div class="sec-head">
+      <p class="mono-label">Project log — all entries</p>
+      <h2 id="log-title">Six entries, five disciplines</h2>
+      <p>Coursework and team projects spanning systems engineering, propulsion, aircraft
+      design, aerodynamics, structures, and circuits — newest first. Five entries carry
+      the full report as a PDF; the circuits entry has no report available.</p>
+    </div>
+
+    <ul class="log-list">
+      <li>
+        <a class="log-row reveal" href="projects/habsat.html">
+          <span class="log-idx" aria-hidden="true">01</span>
+          <span class="log-main">
+            <span class="log-kicker"><b>Systems engineering</b> · Spring 2026 · CATIA V5 · Python · Arduino</span>
+            <span class="log-title">High-Altitude Balloon Flight System</span>
+            <span class="log-desc">Mechanical design and integration lead for a recoverable 30 km payload — structure, thermal, avionics, telemetry, power, and recovery — built, integrated, and ground-tested in 16 weeks. ATC denied airspace access on launch day, so it never flew.</span>
+          </span>
+          <span class="log-side">
+            <span class="log-data">11/22 REQTS VERIFIED · 4 PARTIAL<br>~7 h ENDURANCE · ±10 m GPS</span>
+            <span class="flag flag-bad">Never flew — ATC scrub</span>
+            <span class="log-go">Read entry →</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="log-row reveal" href="projects/propulsion.html">
+          <span class="log-idx" aria-hidden="true">02</span>
+          <span class="log-main">
+            <span class="log-kicker"><b>Propulsion</b> · Fall 2025 · ANSYS Fluent · MATLAB</span>
+            <span class="log-title">Multi-System Propulsion CFD Analysis</span>
+            <span class="log-desc">A ramjet, a chemical rocket, and a resistojet in 2D reacting-flow CFD — Mach number, fuel, mixture ratio, and chamber geometry swept across 15 cases to isolate what each cycle is actually sensitive to.</span>
+          </span>
+          <span class="log-side">
+            <span class="log-data">122,211 N PEAK THRUST<br>Isp UP TO 2,492 s</span>
+            <span class="flag flag-ok">Mesh-independence verified</span>
+            <span class="log-go">Read entry →</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="log-row reveal" href="projects/aircraft-design.html">
+          <span class="log-idx" aria-hidden="true">03</span>
+          <span class="log-main">
+            <span class="log-kicker"><b>Aircraft design</b> · Fall 2025 · CATIA V5 · MATLAB · JavaFoil</span>
+            <span class="log-title">General Aviation Aircraft — Conceptual Design</span>
+            <span class="log-desc">Led the full FAR Part 23 conceptual design of a 4-seat GA aircraft: constraint sizing, drag buildup, propulsion trade study, tail sizing, and a stability check on the selected low-wing T-tail.</span>
+          </span>
+          <span class="log-side">
+            <span class="log-data">1,600 km RANGE · 410 m TAKEOFF<br>3,000 lb MTOW</span>
+            <span class="flag flag-ok">Low-wing T-tail selected</span>
+            <span class="log-go">Read entry →</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="log-row reveal" href="projects/structural-beam.html">
+          <span class="log-idx" aria-hidden="true">04</span>
+          <span class="log-main">
+            <span class="log-kicker"><b>Structures</b> · Fall 2024 · Abaqus</span>
+            <span class="log-title">Structural Beam Design &amp; FEA Validation</span>
+            <span class="log-desc">A beam optimized against a hard 1 lbf mass limit, CNC machined with a partner institution, and put through three-point bending to check the Abaqus model. The $600 cost target was missed; the numbers say so.</span>
+          </span>
+          <span class="log-side">
+            <span class="log-data">FoS 3.4 · 0.974 lbf<br>LOADS TO 6,250 lbf</span>
+            <span class="flag flag-ok">FEA within 4.2% of test</span>
+            <span class="log-go">Read entry →</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="log-row reveal" href="projects/cfd-analysis.html">
+          <span class="log-idx" aria-hidden="true">05</span>
+          <span class="log-main">
+            <span class="log-kicker"><b>Aerodynamics</b> · Fall 2024 · ANSYS Fluent</span>
+            <span class="log-title">Aerodynamic Analysis of NACA Airfoils</span>
+            <span class="log-desc">NACA 0012, 4412, and 6418 swept from −6° to 18° in Fluent — including the part where the original coefficients were normalized to the wrong reference area, and how the ×40.1 correction was found and validated.</span>
+          </span>
+          <span class="log-side">
+            <span class="log-data">c<sub>l,max</sub> 0.891 / 1.289 / 1.418<br>Re ≈ 3.4×10⁴</span>
+            <span class="flag flag-ok">Coefficients corrected</span>
+            <span class="log-go">Read entry →</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="log-row reveal" href="projects/electrical-systems.html">
+          <span class="log-idx" aria-hidden="true">06</span>
+          <span class="log-main">
+            <span class="log-kicker"><b>Electrical</b> · Spring 2024 · LTspice · ADALM2000</span>
+            <span class="log-title">Circuit Characterization &amp; Filter Design</span>
+            <span class="log-desc">RC and RL turn-on transients measured against theory, then low-pass, high-pass, and RLC bandpass filters designed and validated curve-by-curve against LTspice.</span>
+          </span>
+          <span class="log-side">
+            <span class="log-data">τ 9.573 µs MEASURED · 10 µs THEORY<br>CUTOFF 15.92 kHz</span>
+            <span class="flag flag-na">No report PDF</span>
+            <span class="log-go">Read entry →</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h2>Om M. Patel</h2>
+        <p>Aerospace engineer — University of South Carolina, B.S. May 2026. Propulsion,
+        aerodynamics, and structures, modeled in software and checked against test data.</p>
+      </div>
+      <div>
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:omptlsc@gmail.com">omptlsc@gmail.com</a></li>
+          <li><a href="tel:+18439400118">(843) 940-0118</a></li>
+          <li><a href="https://linkedin.com/in/ompatel50" target="_blank" rel="noopener">linkedin.com/in/ompatel50</a></li>
+          <li class="plain">Columbia, South Carolina</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Om M. Patel</span>
+      <span>34.0007° N · 81.0348° W</span>
+      <span>Open to propulsion, fluids &amp; structures roles</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

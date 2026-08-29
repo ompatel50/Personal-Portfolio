@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>High-Altitude Balloon Flight System | Om M. Patel</title>
+<meta name="description" content="Systems engineering and mechanical design of a recoverable 30 km balloon payload, built and ground-tested in 16 weeks. ATC denied airspace access, so it never flew.">
+<meta name="author" content="Om M. Patel">
+<meta name="theme-color" content="#0A0E16">
+
+<meta property="og:title" content="High-Altitude Balloon Flight System | Om M. Patel">
+<meta property="og:description" content="Systems engineering and mechanical design of a recoverable 30 km balloon payload, built and ground-tested in 16 weeks. ATC denied airspace access, so it never flew.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0E16'/><rect y='28' width='32' height='4' fill='%23F2B63B'/><text x='16' y='21' font-family='monospace' font-size='14' font-weight='700' fill='%23F2B63B' text-anchor='middle'>OP</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark" aria-hidden="true">OP</span>
+      <span>Om M. Patel</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../projects.html" class="nav-link is-active" aria-current="page">Projects</a>
+      <a href="../resume.html" class="nav-link">Resume</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="container">
+  <p class="crumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="../projects.html">Projects</a><span class="sep">/</span>Entry 01</p>
+</div>
+<section class="tblock-wrap">
+  <div class="container">
+    <div class="tblock">
+      <div class="tblock-main">
+        <p class="mono-label">Entry 01 <b>//</b> Systems engineering</p>
+        <h1>High-Altitude Balloon Flight System</h1>
+        <p class="tblock-sum">A recoverable 30 km payload — structural, thermal, avionics, telemetry, power, and recovery subsystems — fully built, integrated, and ground-tested in 16 weeks. ATC denied airspace access on launch day, so the article never flew. That outcome is part of the record, not a footnote.</p>
+      </div>
+      <dl class="tblock-meta">
+      <div><dt>Term</dt><dd>Spring 2026 · Senior design (AESP 428)</dd></div>
+      <div><dt>Role</dt><dd>Mechanical design &amp; integration lead</dd></div>
+      <div><dt>Tools</dt><dd>CATIA V5, Python, Arduino</dd></div>
+      <div><dt>Status</dt><dd><span class="flag flag-bad">Built · ground-tested · never flew</span></dd></div>
+      <div><dt>Report</dt><dd><a href="../assets/habsat-report.pdf" download>habsat-report.pdf</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;border-top:0">
+  <div class="container">
+
+    <div class="stats reveal">
+      <div><span class="stat-value">30 <small>km</small></span><span class="stat-label">DESIGN ALTITUDE</span></div>
+      <div><span class="stat-value">16 <small>wk</small></span><span class="stat-label">BUILD TO TEST</span></div>
+      <div><span class="stat-value">~7 <small>h</small></span><span class="stat-label">ENDURANCE TEST</span></div>
+      <div><span class="stat-value">22</span><span class="stat-label">REQUIREMENTS TRACKED</span></div>
+    </div>
+
+    <div class="prose">
+      <h2><span class="sec-no">1.0</span> Mission</h2>
+      <p>The system delivers a recoverable scientific payload to roughly 30 km, collecting
+      environmental and positional data through ascent, float, and descent while maintaining
+      structural integrity, communications, and recovery performance. The payload has to return to
+      the ground with its data intact and minimal damage — inside a 16-week academic term and a
+      fixed $1,500 budget.</p>
+      <p>Those two constraints shaped the architecture more than any technical preference did.</p>
+
+      <h2><span class="sec-no">2.0</span> Systems engineering approach</h2>
+      <p>The project ran on formal methodology: structured trade studies, risk management, and
+      requirement traceability driving design decisions rather than following them.</p>
+      <ul>
+        <li><strong>Work breakdown structure</strong> — five major phases from planning to flight success</li>
+        <li><strong>Functional breakdown structure</strong> — every function required for mission success</li>
+        <li><strong>Functional flow diagram</strong> — function sequencing across the mission lifecycle</li>
+        <li><strong>N² interface analysis</strong> — subsystem interactions and dependencies</li>
+        <li><strong>Risk assessment</strong> — technical and operational risks with mitigations</li>
+      </ul>
+
+      <h2><span class="sec-no">3.0</span> Requirements</h2>
+      <div class="callout">
+        <h3>Primary</h3>
+        <ul>
+          <li>Climb to 30 km (100,000 ft)</li>
+          <li>Transmit real-time temperature to the ground station</li>
+          <li>Transmit acceleration data to the ground station</li>
+          <li>Recover the payload after landing</li>
+          <li>Log data onboard as backup telemetry</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <h3>Secondary</h3>
+        <ul>
+          <li>Transmit HD color images to the ground station</li>
+          <li>Transmit humidity data</li>
+          <li>Track balloon location</li>
+          <li>Operate below −94 °F for at least 3 hours</li>
+        </ul>
+      </div>
+
+      <h2><span class="sec-no">4.0</span> Selected architecture</h2>
+      <p>Chosen through weighted trade-off analysis:</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Architecture selections</caption>
+          <thead><tr><th>Subsystem</th><th>Selection</th></tr></thead>
+          <tbody>
+            <tr><td>Structural</td><td>Single-string suspension attachment</td></tr>
+            <tr><td>Thermal protection</td><td>Expanded polystyrene (EPS) foam enclosure</td></tr>
+            <tr><td>Avionics</td><td>Hybrid Raspberry Pi + microcontroller</td></tr>
+            <tr><td>Communications</td><td>Satellite tracker with RF telemetry</td></tr>
+            <tr><td>Power</td><td>Lithium-ion battery system</td></tr>
+            <tr><td>Recovery</td><td>Single parachute with crush-structure base</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Single-string suspension won on integration complexity, structural mass, load path
+      simplicity, and manufacturability inside the 16-week schedule — a schedule-driven decision,
+      made explicitly rather than by default.</p>
+
+      <h2><span class="sec-no">5.0</span> Ground verification campaign</h2>
+      <p>Every test below was completed on the built article. Results are drawn from the design
+      and verification report.</p>
+      <dl class="vlist">
+        <div><dt>Endurance / logging</dt><dd>Roughly 7 hours of continuous operation, split between simulated flight and post-landing power-save, with data logged throughout.</dd><dd class="v-flag"><span class="flag flag-ok">Pass</span></dd></div>
+        <div><dt>Telemetry range</dt><dd>RFM95W LoRa transceiver delivered 1 Hz packets at test range with content intact.</dd><dd class="v-flag"><span class="flag flag-ok">Pass</span></dd></div>
+        <div><dt>Parachute drop</dt><dd>Deployed correctly from a low-altitude drop, producing a controlled, stable descent.</dd><dd class="v-flag"><span class="flag flag-ok">Pass</span></dd></div>
+        <div><dt>Suspension load</dt><dd>Shock cord, swivel, and attachment points sustained the applied load with no deformation or failure.</dd><dd class="v-flag"><span class="flag flag-ok">Pass</span></dd></div>
+        <div><dt>Cold soak</dt><dd>All sensors and the Raspberry Pi initialized after cold exposure — but lab equipment could not reach the full −70 °C target.</dd><dd class="v-flag"><span class="flag flag-warn">Partial</span></dd></div>
+        <div><dt>GPS ground accuracy</dt><dd>NEO-M8N and u-blox M10 both produced fixes within ±10 m of a known position.</dd><dd class="v-flag"><span class="flag flag-ok">Pass</span></dd></div>
+        <div><dt>Software verification</dt><dd>SPI, I2C, and UART interfaces confirmed; fault handling reviewed.</dd><dd class="v-flag"><span class="flag flag-ok">Pass</span></dd></div>
+      </dl>
+
+      <h2><span class="sec-no">6.0</span> Outcome</h2>
+      <div class="callout callout-bad">
+        <h3>Flight: not conducted</h3>
+        <p>ATC denied airspace access on the launch date and a NOTAM was not secured in time,
+        following procurement and budget delays. The article never left the ground.</p>
+      </div>
+
+      <div class="reqboard">
+        <p class="reqboard-title">22 system requirements — verification status</p>
+        <div class="reqbar" role="img" aria-label="Of 22 requirements: 11 verified, 4 partially verified, 7 not verified">
+          <span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-part"></span><span class="r-part"></span><span class="r-part"></span><span class="r-part"></span><span class="r-no"></span><span class="r-no"></span><span class="r-no"></span><span class="r-no"></span><span class="r-no"></span><span class="r-no"></span><span class="r-no"></span>
+        </div>
+        <p class="reqlegend"><span class="l-ok">11 verified</span><span class="l-part">4 partially verified</span><span class="l-no">7 not verified</span></p>
+      </div>
+
+      <p>Of 22 system requirements and constraints, 11 were fully verified through ground testing,
+      analysis, inspection, or demonstration, and 4 were partially verified to the limit of what
+      ground conditions allowed.</p>
+      <p>The two altitude-dependent requirements — altitude achievement and ascent rate — could not
+      be assessed in any form without flying, since both depend entirely on in-flight GPS data.</p>
+      <ul>
+        <li><strong>Budget — not met.</strong> Final system cost exceeded the $1,500 limit.</li>
+        <li><strong>Schedule — met.</strong> Built, integrated, and ground-tested inside the 16-week term.</li>
+        <li><strong>Remaining nine constraints — met</strong>, with the system designed to FAA Part 101 and FCC Part 15.</li>
+      </ul>
+
+      <h2><span class="sec-no">7.0</span> What the team would do differently</h2>
+      <div class="callout">
+        <h3>Retrospective</h3>
+        <ul>
+          <li><strong>Build launch contingency into the schedule from the start.</strong> When ATC denied access, there was no fallback date. This is the single largest lesson from the project.</li>
+          <li><strong>Coordinate with ATC early rather than treating clearance as a formality.</strong> Submitting the NOTAM request sooner and following up would likely have surfaced the problem while it was still fixable.</li>
+          <li><strong>Order long-lead components earlier.</strong> A GPS module shipping delay cost 1–2 weeks of assembly time, recovered only by parallelizing other tasks.</li>
+          <li><strong>Track budget continuously rather than at milestones.</strong> The overrun was visible in hindsight well before it was addressed.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dstrip">
+      <div>
+        <h2>Full report</h2>
+        <p>Design &amp; Verification Report — requirements, trade studies, test procedures, and results.</p>
+        <p class="file-meta">habsat-report.pdf · 114 pp · student IDs redacted</p>
+      </div>
+      <div>
+        <a class="btn btn-primary" href="../assets/habsat-report.pdf" download>Download DVR (PDF)</a>
+      </div>
+    </div>
+
+    <nav class="pager" aria-label="Project navigation">
+      <span></span>
+      <a class="btn btn-ghost" href="propulsion.html">Entry 02 · Propulsion CFD →</a>
+    </nav>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h2>Om M. Patel</h2>
+        <p>Aerospace engineer — University of South Carolina, B.S. May 2026. Propulsion,
+        aerodynamics, and structures, modeled in software and checked against test data.</p>
+      </div>
+      <div>
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="../resume.html">Resume</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:omptlsc@gmail.com">omptlsc@gmail.com</a></li>
+          <li><a href="tel:+18439400118">(843) 940-0118</a></li>
+          <li><a href="https://linkedin.com/in/ompatel50" target="_blank" rel="noopener">linkedin.com/in/ompatel50</a></li>
+          <li class="plain">Columbia, South Carolina</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Om M. Patel</span>
+      <span>34.0007° N · 81.0348° W</span>
+      <span>Open to propulsion, fluids &amp; structures roles</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

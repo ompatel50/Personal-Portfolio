@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Structural Beam Design & FEA Validation | Om M. Patel</title>
+<meta name="description" content="Mass-constrained beam design in Abaqus with a factor of safety of 3.4, CNC machined and validated against three-point bending to within 4.2%.">
+<meta name="author" content="Om M. Patel">
+<meta name="theme-color" content="#0A0E16">
+
+<meta property="og:title" content="Structural Beam Design & FEA Validation | Om M. Patel">
+<meta property="og:description" content="Mass-constrained beam design in Abaqus with a factor of safety of 3.4, CNC machined and validated against three-point bending to within 4.2%.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0E16'/><rect y='28' width='32' height='4' fill='%23F2B63B'/><text x='16' y='21' font-family='monospace' font-size='14' font-weight='700' fill='%23F2B63B' text-anchor='middle'>OP</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark" aria-hidden="true">OP</span>
+      <span>Om M. Patel</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../projects.html" class="nav-link is-active" aria-current="page">Projects</a>
+      <a href="../resume.html" class="nav-link">Resume</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="container">
+  <p class="crumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="../projects.html">Projects</a><span class="sep">/</span>Entry 04</p>
+</div>
+<section class="tblock-wrap">
+  <div class="container">
+    <div class="tblock">
+      <div class="tblock-main">
+        <p class="mono-label">Entry 04 <b>//</b> Structures</p>
+        <h1>Structural Beam Design &amp; FEA Validation</h1>
+        <p class="tblock-sum">A beam designed against a hard 1 lbf mass limit, CNC machined with a partner institution, and put through three-point bending to check the Abaqus model — which held to within 4.2% of the measured deflection.</p>
+      </div>
+      <dl class="tblock-meta">
+      <div><dt>Term</dt><dd>Fall 2024 · Team project</dd></div>
+      <div><dt>Tools</dt><dd>Abaqus</dd></div>
+      <div><dt>Validation</dt><dd>Three-point bending, loads to 6,250 lbf</dd></div>
+      <div><dt>Status</dt><dd><span class="flag flag-ok">FEA within 4.2% of test</span></dd></div>
+      <div><dt>Report</dt><dd><a href="../assets/structural-beam-report.pdf" download>structural-beam-report.pdf</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;border-top:0">
+  <div class="container">
+
+    <div class="stats reveal">
+      <div><span class="stat-value">3.4</span><span class="stat-label">FACTOR OF SAFETY</span></div>
+      <div><span class="stat-value">0.974 <small>lbf</small></span><span class="stat-label">FINAL MASS</span></div>
+      <div><span class="stat-value">4.2<small>%</small></span><span class="stat-label">FEA VS MEASURED</span></div>
+      <div><span class="stat-value">6,250 <small>lbf</small></span><span class="stat-label">MAX TEST LOAD</span></div>
+    </div>
+
+    <div class="prose">
+      <h2><span class="sec-no">1.0</span> Overview</h2>
+      <p>The brief was a beam that carried the required load with a mass under 1 lbf — a constraint
+      tight enough that the design could not simply be made stronger. The final article came in at
+      0.974 lbf with a factor of safety of 3.4, and its measured deflection agreed with the Abaqus
+      prediction to within 4.2% at loads up to 6,250 lbf.</p>
+
+      <h2><span class="sec-no">2.0</span> Design and mass iteration</h2>
+      <p>Modeling started from a 3D extrusion of the provided sketch, including access holes with
+      predetermined dimensions. Those features were integral to the beam's function and made the
+      strength-versus-mass balance harder rather than easier.</p>
+      <p>Because mass could not be read directly during simulation setup, hitting the limit took
+      several iterations. After establishing a baseline model with meshing, boundary conditions, and
+      loads, the design was revisited repeatedly to trim weight. A series of strategically placed
+      lightening holes in low-stress web regions proved the most effective route — it brought the
+      mass under the threshold without giving up the load path.</p>
+
+      <h2><span class="sec-no">3.0</span> Simulation problems and what was done about them</h2>
+      <h3>Dimensional rounding</h3>
+      <p>Abaqus rounded dimensions on input, introducing small discrepancies between the design
+      specification and the model. Every dimension was re-checked against the specification to keep
+      the two consistent.</p>
+      <h3>Hourglassing</h3>
+      <p>The persistent issue was hourglassing — a numerical artifact producing unrealistic
+      distortion, worst near the supports. Mitigation included refining the mesh and trying
+      different meshing techniques and element formulations. The distortion persisted under mesh
+      refinement, which is a useful result in itself: it localizes the artifact to the element
+      formulation rather than mesh density.</p>
+      <h3>Element size</h3>
+      <p>Element size drove accuracy directly. Finer meshes improved the solution but raised
+      computational cost, and after early runs showed significant hourglassing, reducing element
+      size cut the distortion without eliminating it.</p>
+
+      <h2><span class="sec-no">4.0</span> Experiment versus simulation</h2>
+      <p>Deviation between the finite element results and the physical three-point bending
+      measurements was <strong>4.2%</strong> at loads up to 6,250 lbf. In compliance terms, the
+      simulation predicted about 4.8×10⁻⁶ in/lbf against roughly 5.0×10⁻⁶ in/lbf measured — the
+      experimental article deflecting slightly more at every load point.</p>
+      <div class="callout">
+        <h3>Likely sources of the deviation</h3>
+        <ul>
+          <li><strong>Material property variation</strong> — the real material likely differed slightly from the assumed properties</li>
+          <li><strong>Boundary condition assumptions</strong> — the physical test fixture would not have matched the idealized constraints exactly</li>
+          <li><strong>Numerical artifacts</strong> — the hourglassing and rounding issues above would each contribute</li>
+        </ul>
+      </div>
+
+      <h2><span class="sec-no">5.0</span> Outcome</h2>
+      <ul>
+        <li><strong>Factor of safety 3.4</strong> at a final mass of <strong>0.974 lbf</strong> against the strict 1 lbf limit</li>
+        <li>FEA deflection validated against physical testing to within <strong>4.2%</strong></li>
+        <li>Physical beam CNC machined through a partner institution — a team effort end to end</li>
+        <li><strong>Manufacturing cost $789.67 against a $600 target — not met.</strong> The mass and strength targets were hit; the cost target was not.</li>
+      </ul>
+    </div>
+
+    <div class="dstrip">
+      <div>
+        <h2>Full report</h2>
+        <p>Design iterations, mesh and element studies, and the validation against three-point bending.</p>
+        <p class="file-meta">structural-beam-report.pdf · 8 pp</p>
+      </div>
+      <div>
+        <a class="btn btn-primary" href="../assets/structural-beam-report.pdf" download>Download report (PDF)</a>
+      </div>
+    </div>
+
+    <nav class="pager" aria-label="Project navigation">
+      <a class="btn btn-ghost" href="aircraft-design.html">← Entry 03 · GA Aircraft Design</a>
+      <a class="btn btn-ghost" href="cfd-analysis.html">Entry 05 · NACA Airfoil CFD →</a>
+    </nav>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h2>Om M. Patel</h2>
+        <p>Aerospace engineer — University of South Carolina, B.S. May 2026. Propulsion,
+        aerodynamics, and structures, modeled in software and checked against test data.</p>
+      </div>
+      <div>
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="../resume.html">Resume</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:omptlsc@gmail.com">omptlsc@gmail.com</a></li>
+          <li><a href="tel:+18439400118">(843) 940-0118</a></li>
+          <li><a href="https://linkedin.com/in/ompatel50" target="_blank" rel="noopener">linkedin.com/in/ompatel50</a></li>
+          <li class="plain">Columbia, South Carolina</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Om M. Patel</span>
+      <span>34.0007° N · 81.0348° W</span>
+      <span>Open to propulsion, fluids &amp; structures roles</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

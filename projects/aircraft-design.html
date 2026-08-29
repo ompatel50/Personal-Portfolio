@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GA Aircraft Conceptual Design | Om M. Patel</title>
+<meta name="description" content="FAR Part 23 conceptual design of a 4-seat general aviation aircraft: constraint sizing, drag buildup, propulsion trade study, and stability analysis.">
+<meta name="author" content="Om M. Patel">
+<meta name="theme-color" content="#0A0E16">
+
+<meta property="og:title" content="GA Aircraft Conceptual Design | Om M. Patel">
+<meta property="og:description" content="FAR Part 23 conceptual design of a 4-seat general aviation aircraft: constraint sizing, drag buildup, propulsion trade study, and stability analysis.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0E16'/><rect y='28' width='32' height='4' fill='%23F2B63B'/><text x='16' y='21' font-family='monospace' font-size='14' font-weight='700' fill='%23F2B63B' text-anchor='middle'>OP</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark" aria-hidden="true">OP</span>
+      <span>Om M. Patel</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../projects.html" class="nav-link is-active" aria-current="page">Projects</a>
+      <a href="../resume.html" class="nav-link">Resume</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="container">
+  <p class="crumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="../projects.html">Projects</a><span class="sep">/</span>Entry 03</p>
+</div>
+<section class="tblock-wrap">
+  <div class="container">
+    <div class="tblock">
+      <div class="tblock-main">
+        <p class="mono-label">Entry 03 <b>//</b> Aircraft design</p>
+        <h1>General Aviation Aircraft — Conceptual Design</h1>
+        <p class="tblock-sum">Full FAR Part 23 conceptual design of a 4-seat general aviation aircraft, from mission requirements through sizing, aerodynamics, propulsion selection, and stability — ending in a selected configuration and 3D CAD model.</p>
+      </div>
+      <dl class="tblock-meta">
+      <div><dt>Term</dt><dd>Fall 2025 · AESP 415</dd></div>
+      <div><dt>Role</dt><dd>Design lead</dd></div>
+      <div><dt>Tools</dt><dd>CATIA V5, MATLAB, JavaFoil</dd></div>
+      <div><dt>Standard</dt><dd>FAR Part 23</dd></div>
+      <div><dt>Status</dt><dd><span class="flag flag-ok">Low-wing T-tail selected</span></dd></div>
+      <div><dt>Report</dt><dd><a href="../assets/aircraft-design-report.pdf" download>aircraft-design-report.pdf</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;border-top:0">
+  <div class="container">
+
+    <div class="stats reveal">
+      <div><span class="stat-value">1,600 <small>km</small></span><span class="stat-label">DESIGN RANGE</span></div>
+      <div><span class="stat-value">410 <small>m</small></span><span class="stat-label">TAKEOFF DISTANCE</span></div>
+      <div><span class="stat-value">77.2 <small>m/s</small></span><span class="stat-label">CRUISE SPEED</span></div>
+      <div><span class="stat-value">1,361 <small>kg</small></span><span class="stat-label">MTOW</span></div>
+    </div>
+
+    <div class="prose">
+      <h2><span class="sec-no">1.0</span> Overview</h2>
+      <p>Led a semester-long conceptual design of a 4-seat general aviation aircraft meeting range,
+      cruise, and takeoff constraints under FAR Part 23. The work covered every stage from
+      requirements analysis through a validated final configuration and 3D CAD model.</p>
+
+      <h2><span class="sec-no">2.0</span> Constraint sizing</h2>
+      <p>Built a wing loading versus power loading (W/S – W/P) sizing diagram, overlaying the
+      constraints that bound the feasible design space:</p>
+      <ul>
+        <li>Stall speed limit</li>
+        <li>Climb performance requirement</li>
+        <li>Landing distance limit</li>
+        <li>Takeoff field length</li>
+      </ul>
+
+      <h2><span class="sec-no">3.0</span> Aerodynamics and drag buildup</h2>
+      <p>Assembled a component drag buildup rather than assuming a single lumped drag coefficient,
+      accounting for wing parasite and induced drag, fuselage, empennage, landing gear, and
+      interference effects. That model fed the C<sub>L</sub>–C<sub>D</sub> curves and, through the
+      Breguet range equation, the payload-range trade study.</p>
+
+      <h2><span class="sec-no">4.0</span> Propulsion trade study</h2>
+      <p>Evaluated engine candidates across takeoff, cruise, and climb, downselecting on
+      power-to-weight, fuel efficiency, and certification compatibility — the last of which ruled
+      out otherwise attractive options.</p>
+
+      <h2><span class="sec-no">5.0</span> Stability and control</h2>
+      <ul>
+        <li>Center-of-gravity estimation across loading conditions</li>
+        <li>Horizontal and vertical tail sizing</li>
+        <li>Scissor plot analysis to confirm static stability</li>
+        <li>Controllability verification against FAR Part 23</li>
+      </ul>
+
+      <h2><span class="sec-no">6.0</span> Configuration selection</h2>
+      <p>Three configurations were carried far enough to compare on equal terms:</p>
+      <ul>
+        <li><strong>High-wing conventional</strong> — good stability and visibility, higher drag</li>
+        <li><strong>Low-wing T-tail (selected)</strong> — best balance of performance, cabin comfort, and feasibility</li>
+        <li><strong>Pusher-prop unconventional</strong> — real aerodynamic advantages, but a difficult certification path</li>
+      </ul>
+      <p>The low-wing T-tail was selected for cruise efficiency and a proven Part 23 certification
+      precedent.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Final specification</caption>
+          <thead><tr><th>Parameter</th><th class="num">Value</th></tr></thead>
+          <tbody>
+            <tr><td>Occupants</td><td class="num">4 (including pilot)</td></tr>
+            <tr><td>Range</td><td class="num">1,600 km</td></tr>
+            <tr><td>Cruise altitude</td><td class="num">2,440 m</td></tr>
+            <tr><td>Cruise speed</td><td class="num">77.2 m/s (150 KTAS)</td></tr>
+            <tr><td>Takeoff distance</td><td class="num">410 m (1,340 ft)</td></tr>
+            <tr><td>Max takeoff weight</td><td class="num">1,361 kg (3,000 lb)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="dstrip">
+      <div>
+        <h2>Full report</h2>
+        <p>Mission analysis, sizing, aerodynamics, propulsion trade study, stability, and configuration CAD.</p>
+        <p class="file-meta">aircraft-design-report.pdf · 120 pp · student IDs redacted</p>
+      </div>
+      <div>
+        <a class="btn btn-primary" href="../assets/aircraft-design-report.pdf" download>Download report (PDF)</a>
+      </div>
+    </div>
+
+    <nav class="pager" aria-label="Project navigation">
+      <a class="btn btn-ghost" href="propulsion.html">← Entry 02 · Propulsion CFD</a>
+      <a class="btn btn-ghost" href="structural-beam.html">Entry 04 · Beam &amp; FEA Validation →</a>
+    </nav>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h2>Om M. Patel</h2>
+        <p>Aerospace engineer — University of South Carolina, B.S. May 2026. Propulsion,
+        aerodynamics, and structures, modeled in software and checked against test data.</p>
+      </div>
+      <div>
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="../resume.html">Resume</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:omptlsc@gmail.com">omptlsc@gmail.com</a></li>
+          <li><a href="tel:+18439400118">(843) 940-0118</a></li>
+          <li><a href="https://linkedin.com/in/ompatel50" target="_blank" rel="noopener">linkedin.com/in/ompatel50</a></li>
+          <li class="plain">Columbia, South Carolina</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Om M. Patel</span>
+      <span>34.0007° N · 81.0348° W</span>
+      <span>Open to propulsion, fluids &amp; structures roles</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

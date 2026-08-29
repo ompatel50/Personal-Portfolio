@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circuit Characterization & Filter Design | Om M. Patel</title>
+<meta name="description" content="RC and RL transient characterization plus low-pass, high-pass, and RLC bandpass filter design, validated against LTspice simulation.">
+<meta name="author" content="Om M. Patel">
+<meta name="theme-color" content="#0A0E16">
+
+<meta property="og:title" content="Circuit Characterization & Filter Design | Om M. Patel">
+<meta property="og:description" content="RC and RL transient characterization plus low-pass, high-pass, and RLC bandpass filter design, validated against LTspice simulation.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0E16'/><rect y='28' width='32' height='4' fill='%23F2B63B'/><text x='16' y='21' font-family='monospace' font-size='14' font-weight='700' fill='%23F2B63B' text-anchor='middle'>OP</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark" aria-hidden="true">OP</span>
+      <span>Om M. Patel</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../projects.html" class="nav-link is-active" aria-current="page">Projects</a>
+      <a href="../resume.html" class="nav-link">Resume</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="container">
+  <p class="crumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="../projects.html">Projects</a><span class="sep">/</span>Entry 06</p>
+</div>
+<section class="tblock-wrap">
+  <div class="container">
+    <div class="tblock">
+      <div class="tblock-main">
+        <p class="mono-label">Entry 06 <b>//</b> Electrical</p>
+        <h1>Circuit Characterization &amp; Filter Design</h1>
+        <p class="tblock-sum">RC and RL turn-on transients measured against theory, then low-pass, high-pass, and RLC bandpass filters designed and validated transfer-curve by transfer-curve against LTspice.</p>
+      </div>
+      <dl class="tblock-meta">
+      <div><dt>Term</dt><dd>Spring 2024 · ELCT 221</dd></div>
+      <div><dt>Tools</dt><dd>LTspice, ADALM2000</dd></div>
+      <div><dt>Filters</dt><dd>Low-pass, high-pass, RLC bandpass</dd></div>
+      <div><dt>Status</dt><dd><span class="flag flag-na">No report PDF</span></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;border-top:0">
+  <div class="container">
+
+    <div class="stats reveal">
+      <div><span class="stat-value">9.573 <small>µs</small></span><span class="stat-label">MEASURED RC τ</span></div>
+      <div><span class="stat-value">8.969 <small>µs</small></span><span class="stat-label">MEASURED RL τ</span></div>
+      <div><span class="stat-value">15.92 <small>kHz</small></span><span class="stat-label">CUTOFF FREQUENCY</span></div>
+      <div><span class="stat-value">0.159</span><span class="stat-label">BANDPASS Q</span></div>
+    </div>
+
+    <div class="prose">
+      <h2><span class="sec-no">1.0</span> Overview</h2>
+      <p>Two linked projects: characterizing RC and RL circuits, then designing and validating
+      filters built from the same components. Every experimental measurement was checked against
+      both hand calculation and SPICE simulation.</p>
+
+      <h2><span class="sec-no">2.0</span> RC and RL characterization</h2>
+      <h3>RC circuit</h3>
+      <p>With R = 100 Ω and C = 0.1 µF, the theoretical time constant is:</p>
+      <p class="eq">τ = RC = 100 × 0.1×10⁻⁶ = 10 µs</p>
+      <p>The turn-on transient across the resistor follows V<sub>R</sub>(t) = V<sub>s</sub>·e<sup>−t/τ</sup>,
+      so at t = τ, V<sub>R</sub> = 0.368 V<sub>s</sub>.</p>
+      <p><strong>Measured: τ = 9.573 µs</strong> against 10 µs theoretical — a 4.3% difference
+      attributable to component tolerance and measurement uncertainty.</p>
+      <h3>RL circuit</h3>
+      <p>With R = 100 Ω and L = 1 mH:</p>
+      <p class="eq">τ = L/R = 0.001 / 100 = 10 µs</p>
+      <p>Here the transient follows V<sub>R</sub>(t) = V<sub>s</sub>·(1 − e<sup>−t/τ</sup>), giving
+      0.632 V<sub>s</sub> at t = τ.</p>
+      <p><strong>Measured: τ = 8.969 µs.</strong> The larger gap is consistent with inductor winding
+      resistance, which the ideal model omits.</p>
+
+      <h2><span class="sec-no">3.0</span> Filter design</h2>
+      <h3>RC low-pass and high-pass</h3>
+      <p class="eq">f<sub>c</sub> = 1 / (2πRC) = 15.92 kHz</p>
+      <p>The low-pass passes signals below 15.92 kHz and attenuates above; the high-pass, built from
+      the same component values, gives the complementary response with the transition at the same
+      cutoff. Transfer curves were measured on a network analyzer and compared against LTspice.</p>
+      <h3>RLC bandpass</h3>
+      <p>With R = 100 Ω, L = 1 mH, C = 0.1 µF:</p>
+      <p class="eq">f<sub>R</sub> = 1 / (2π√(LC)) = 15,915 Hz&nbsp;&nbsp;·&nbsp;&nbsp;B = 100 kHz&nbsp;&nbsp;·&nbsp;&nbsp;Q = 0.159</p>
+      <p>The low Q is worth noting: with a 100 Ω series resistance the bandwidth far exceeds the
+      resonant frequency, so this circuit is a broad bandpass rather than a selective one.</p>
+
+      <h2><span class="sec-no">4.0</span> Simulation and validation</h2>
+      <p>All filters were simulated in LTspice, and the simulated transfer curves matched the bench
+      measurements:</p>
+      <ul>
+        <li>Magnitude and phase curves agreed between simulation and experiment</li>
+        <li>Cutoff frequencies aligned within measurement tolerance</li>
+        <li>Roll-off and resonance behavior were predicted accurately</li>
+      </ul>
+
+      <div class="callout">
+        <h3>Report</h3>
+        <p>No report PDF is available for this project, so no download is linked here. The values
+        above are the recorded results.</p>
+      </div>
+    </div>
+
+    <nav class="pager" aria-label="Project navigation">
+      <a class="btn btn-ghost" href="cfd-analysis.html">← Entry 05 · NACA Airfoil CFD</a>
+      <span></span>
+    </nav>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h2>Om M. Patel</h2>
+        <p>Aerospace engineer — University of South Carolina, B.S. May 2026. Propulsion,
+        aerodynamics, and structures, modeled in software and checked against test data.</p>
+      </div>
+      <div>
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="../resume.html">Resume</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:omptlsc@gmail.com">omptlsc@gmail.com</a></li>
+          <li><a href="tel:+18439400118">(843) 940-0118</a></li>
+          <li><a href="https://linkedin.com/in/ompatel50" target="_blank" rel="noopener">linkedin.com/in/ompatel50</a></li>
+          <li class="plain">Columbia, South Carolina</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Om M. Patel</span>
+      <span>34.0007° N · 81.0348° W</span>
+      <span>Open to propulsion, fluids &amp; structures roles</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

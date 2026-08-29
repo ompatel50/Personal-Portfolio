@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-System Propulsion CFD Analysis | Om M. Patel</title>
+<meta name="description" content="CFD analysis of ramjet, chemical rocket, and resistojet propulsion systems in ANSYS Fluent, quantifying thrust, Isp, and TSFC across 15 cases.">
+<meta name="author" content="Om M. Patel">
+<meta name="theme-color" content="#0A0E16">
+
+<meta property="og:title" content="Multi-System Propulsion CFD Analysis | Om M. Patel">
+<meta property="og:description" content="CFD analysis of ramjet, chemical rocket, and resistojet propulsion systems in ANSYS Fluent, quantifying thrust, Isp, and TSFC across 15 cases.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0E16'/><rect y='28' width='32' height='4' fill='%23F2B63B'/><text x='16' y='21' font-family='monospace' font-size='14' font-weight='700' fill='%23F2B63B' text-anchor='middle'>OP</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark" aria-hidden="true">OP</span>
+      <span>Om M. Patel</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../projects.html" class="nav-link is-active" aria-current="page">Projects</a>
+      <a href="../resume.html" class="nav-link">Resume</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="container">
+  <p class="crumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="../projects.html">Projects</a><span class="sep">/</span>Entry 02</p>
+</div>
+<section class="tblock-wrap">
+  <div class="container">
+    <div class="tblock">
+      <div class="tblock-main">
+        <p class="mono-label">Entry 02 <b>//</b> Propulsion</p>
+        <h1>Multi-System Propulsion CFD Analysis</h1>
+        <p class="tblock-sum">Numerical analysis of three propulsion systems — a ramjet, a chemical rocket, and a resistojet — in ANSYS Fluent, examining the flow physics that governs thrust in each cycle across 15 cases.</p>
+      </div>
+      <dl class="tblock-meta">
+      <div><dt>Term</dt><dd>Fall 2025 · AESP 314</dd></div>
+      <div><dt>Tools</dt><dd>ANSYS Fluent, MATLAB</dd></div>
+      <div><dt>Scope</dt><dd>3 engine cycles · 15 cases</dd></div>
+      <div><dt>Status</dt><dd><span class="flag flag-ok">Mesh-independence verified</span></dd></div>
+      <div><dt>Report</dt><dd><a href="../assets/propulsion-report.pdf" download>propulsion-report.pdf</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;border-top:0">
+  <div class="container">
+
+    <div class="stats reveal">
+      <div><span class="stat-value">122,211 <small>N</small></span><span class="stat-label">PEAK THRUST</span></div>
+      <div><span class="stat-value">2,492 <small>s</small></span><span class="stat-label">PEAK Isp</span></div>
+      <div><span class="stat-value">3</span><span class="stat-label">ENGINE CYCLES</span></div>
+      <div><span class="stat-value">5</span><span class="stat-label">MESH DENSITIES</span></div>
+    </div>
+
+    <div class="prose">
+      <h2><span class="sec-no">1.0</span> Overview</h2>
+      <p>Each engine was modeled with simplified two-dimensional geometries informed by established
+      propulsion literature and verified through a mesh-independence study across five mesh
+      densities. The simulations explored how fuel choice, mixture ratio, geometric design, and
+      operating conditions influence propulsive efficiency.</p>
+      <p>The point of running all three cycles rather than one was comparative: a ramjet, a chemical
+      rocket, and a resistojet generate thrust by different mechanisms, so validating one modeling
+      approach across all three is a stronger check than tuning a single case until it matches.</p>
+
+      <h2><span class="sec-no">2.0</span> Modeling approach</h2>
+      <ul>
+        <li>Geometry built from classical propulsion literature</li>
+        <li>Mesh-independence study across five mesh densities</li>
+        <li>Pressure-based steady solver with the energy equation enabled</li>
+        <li>Species transport with a finite-rate / eddy-dissipation combustion model</li>
+        <li>k-ω SST turbulence model for near-wall accuracy</li>
+      </ul>
+      <p>Fluent output was converted to performance metrics using the classical relations:</p>
+      <p class="eq">T = ṁV<sub>e</sub> + (p<sub>e</sub> − p<sub>a</sub>)A<sub>e</sub></p>
+      <p class="eq">I<sub>sp</sub> = T / (ṁg₀)</p>
+      <p class="eq">TSFC = ṁ<sub>fuel</sub> / T</p>
+      <p class="eq">C<sub>F</sub> = F / (p<sub>t</sub>A<sub>t</sub>)</p>
+
+      <h2><span class="sec-no">3.0</span> Ramjet</h2>
+      <p>Simulated at flight Mach numbers of 1.5, 2.0, and 3.0 with methane and hydrogen fuels at
+      two fuel-to-air ratios, to assess how inlet compression, combustion behavior, and mixing
+      affect thrust, specific impulse, and TSFC.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Ramjet cases — all five</caption>
+          <thead><tr><th class="num">Case</th><th class="num">Mach</th><th>Fuel</th><th class="num">F/A</th><th class="num">Thrust (N)</th><th class="num">TSFC (kg/N·s)</th><th class="num">Isp (s)</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1</td><td class="num">1.5</td><td>H₂</td><td class="num">0.05</td><td class="num">28,422</td><td class="num">1.26×10⁻⁴</td><td class="num">580</td></tr>
+            <tr><td class="num">2</td><td class="num">2.0</td><td>CH₄</td><td class="num">0.20</td><td class="num">54,835</td><td class="num">3.85×10⁻⁴</td><td class="num">279</td></tr>
+            <tr><td class="num">3</td><td class="num">2.0</td><td>H₂</td><td class="num">0.05</td><td class="num">48,261</td><td class="num">1.04×10⁻⁴</td><td class="num">984</td></tr>
+            <tr><td class="num">4</td><td class="num">3.0</td><td>CH₄</td><td class="num">0.20</td><td class="num">117,854</td><td class="num">1.70×10⁻⁴</td><td class="num">601</td></tr>
+            <tr><td class="num">5</td><td class="num">3.0</td><td>H₂</td><td class="num">0.05</td><td class="num">122,211</td><td class="num">4.03×10⁻⁵</td><td class="num">2,492</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <h3>Findings — ramjet</h3>
+        <ul>
+          <li>Hydrogen at Mach 3 produced the highest thrust and specific impulse, from better combustion efficiency and lighter exhaust products</li>
+          <li>Thrust rose sharply from Mach 2 to Mach 3, with the hydrogen case exceeding 122 kN</li>
+          <li>Hydrogen gave much higher Isp (up to 2,492 s) and lower TSFC than methane</li>
+          <li>Methane cases showed pockets of unburned fuel at high fuel-air ratios — incomplete combustion</li>
+          <li>At Mach 3, inlet shocks caused excessive stagnation pressure loss — the price of the thrust gain</li>
+        </ul>
+      </div>
+
+      <h2><span class="sec-no">4.0</span> Chemical rocket</h2>
+      <p>Evaluated across two propellants, two mixture ratios, and two chamber lengths, isolating
+      the effect of chamber pressure, nozzle expansion, and propellant chemistry on efficiency.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Chemical rocket — specific impulse by case</caption>
+          <thead><tr><th>Case</th><th class="num">CR1</th><th class="num">CR2</th><th class="num">CR3</th><th class="num">CR4</th><th class="num">CR5</th><th class="num">CR6</th></tr></thead>
+          <tbody>
+            <tr><td>Isp (s)</td><td class="num">98.5</td><td class="num">121.2</td><td class="num">88.1</td><td class="num">19.9</td><td class="num">99.5</td><td class="num">47.4</td></tr>
+          </tbody>
+        </table>
+        <p class="table-note">TSFC and thrust coefficient are <strong>not reported</strong> for the rocket cases:
+        fuel-only mass flow and throat area were not logged, so neither can be computed from the
+        recorded data.</p>
+      </div>
+
+      <div class="callout">
+        <h3>Findings — chemical rocket</h3>
+        <ul>
+          <li>Longer chambers gave more complete methane combustion and higher exit velocity</li>
+          <li>Hydrogen cases produced very high chamber pressures and high efficiency under lean conditions</li>
+          <li>Lean hydrogen in the 5 m chamber (CR2, 121.2 s) was the best case</li>
+          <li>Over-rich hydrogen (CR4, 19.9 s) performed worst — raising mixture ratio buys thrust but costs Isp once combustion goes fuel-rich</li>
+        </ul>
+      </div>
+
+      <h2><span class="sec-no">5.0</span> Resistojet</h2>
+      <p>Explored how inlet velocity, electric heating strength, and micro-nozzle geometry affect
+      the thermally driven exhaust acceleration characteristic of electric propulsion.</p>
+      <div class="callout">
+        <h3>Findings — resistojet</h3>
+        <ul>
+          <li>Higher inlet velocity increased mass flow and therefore thrust</li>
+          <li>Stronger electric fields raised heater power and exit temperature, improving exhaust velocity</li>
+          <li>Electrical energy input is the dominant driver of specific impulse</li>
+          <li>Increasing heater power delivered disproportionately large Isp gains</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dstrip">
+      <div>
+        <h2>Full report</h2>
+        <p>Geometry, mesh study, solver setup, and the complete case matrix for all three cycles.</p>
+        <p class="file-meta">propulsion-report.pdf · 15 pp</p>
+      </div>
+      <div>
+        <a class="btn btn-primary" href="../assets/propulsion-report.pdf" download>Download report (PDF)</a>
+      </div>
+    </div>
+
+    <nav class="pager" aria-label="Project navigation">
+      <a class="btn btn-ghost" href="habsat.html">← Entry 01 · Balloon Flight System</a>
+      <a class="btn btn-ghost" href="aircraft-design.html">Entry 03 · GA Aircraft Design →</a>
+    </nav>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h2>Om M. Patel</h2>
+        <p>Aerospace engineer — University of South Carolina, B.S. May 2026. Propulsion,
+        aerodynamics, and structures, modeled in software and checked against test data.</p>
+      </div>
+      <div>
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="../resume.html">Resume</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:omptlsc@gmail.com">omptlsc@gmail.com</a></li>
+          <li><a href="tel:+18439400118">(843) 940-0118</a></li>
+          <li><a href="https://linkedin.com/in/ompatel50" target="_blank" rel="noopener">linkedin.com/in/ompatel50</a></li>
+          <li class="plain">Columbia, South Carolina</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Om M. Patel</span>
+      <span>34.0007° N · 81.0348° W</span>
+      <span>Open to propulsion, fluids &amp; structures roles</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
