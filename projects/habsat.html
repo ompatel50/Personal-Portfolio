@@ -45,7 +45,7 @@
       <div class="tblock-main">
         <p class="mono-label">Entry 01 <b>//</b> Systems engineering</p>
         <h1>High-Altitude Balloon Flight System</h1>
-        <p class="tblock-sum">A recoverable 30 km payload — structural, thermal, avionics, telemetry, power, and recovery subsystems — fully built, integrated, and ground-tested in 16 weeks. ATC denied airspace access on launch day, so the article never flew. That outcome is part of the record, not a footnote.</p>
+        <p class="tblock-sum">A recoverable 30 km payload covering structural, thermal, avionics, telemetry, power, and recovery subsystems. Fully built, integrated, and ground-tested in 16 weeks. ATC denied airspace access on launch day, so the article never flew.</p>
       </div>
       <dl class="tblock-meta">
       <div><dt>Term</dt><dd>Spring 2026 · Senior design (AESP 428)</dd></div>
@@ -73,7 +73,7 @@
       <p>The system delivers a recoverable scientific payload to roughly 30 km, collecting
       environmental and positional data through ascent, float, and descent while maintaining
       structural integrity, communications, and recovery performance. The payload has to return to
-      the ground with its data intact and minimal damage — inside a 16-week academic term and a
+      the ground with its data intact and minimal damage, inside a 16-week academic term and a
       fixed $1,500 budget.</p>
       <p>Those two constraints shaped the architecture more than any technical preference did.</p>
 
@@ -81,11 +81,11 @@
       <p>The project ran on formal methodology: structured trade studies, risk management, and
       requirement traceability driving design decisions rather than following them.</p>
       <ul>
-        <li><strong>Work breakdown structure</strong> — five major phases from planning to flight success</li>
-        <li><strong>Functional breakdown structure</strong> — every function required for mission success</li>
-        <li><strong>Functional flow diagram</strong> — function sequencing across the mission lifecycle</li>
-        <li><strong>N² interface analysis</strong> — subsystem interactions and dependencies</li>
-        <li><strong>Risk assessment</strong> — technical and operational risks with mitigations</li>
+        <li><strong>Work breakdown structure:</strong> five major phases from planning to flight success</li>
+        <li><strong>Functional breakdown structure:</strong> every function required for mission success</li>
+        <li><strong>Functional flow diagram:</strong> function sequencing across the mission lifecycle</li>
+        <li><strong>N² interface analysis:</strong> subsystem interactions and dependencies</li>
+        <li><strong>Risk assessment:</strong> technical and operational risks with mitigations</li>
       </ul>
 
       <h2><span class="sec-no">3.0</span> Requirements</h2>
@@ -126,8 +126,8 @@
         </table>
       </div>
       <p>Single-string suspension won on integration complexity, structural mass, load path
-      simplicity, and manufacturability inside the 16-week schedule — a schedule-driven decision,
-      made explicitly rather than by default.</p>
+      simplicity, and manufacturability inside the 16-week schedule. That was a schedule-driven
+      decision, and we made it deliberately.</p>
 
       <h2><span class="sec-no">5.0</span> Ground verification campaign</h2>
       <p>Every test below was completed on the built article. Results are drawn from the design
@@ -137,7 +137,7 @@
         <div><dt>Telemetry range</dt><dd>RFM95W LoRa transceiver delivered 1 Hz packets at test range with content intact.</dd><dd class="v-flag"><span class="flag flag-ok">Pass</span></dd></div>
         <div><dt>Parachute drop</dt><dd>Deployed correctly from a low-altitude drop, producing a controlled, stable descent.</dd><dd class="v-flag"><span class="flag flag-ok">Pass</span></dd></div>
         <div><dt>Suspension load</dt><dd>Shock cord, swivel, and attachment points sustained the applied load with no deformation or failure.</dd><dd class="v-flag"><span class="flag flag-ok">Pass</span></dd></div>
-        <div><dt>Cold soak</dt><dd>All sensors and the Raspberry Pi initialized after cold exposure — but lab equipment could not reach the full −70 °C target.</dd><dd class="v-flag"><span class="flag flag-warn">Partial</span></dd></div>
+        <div><dt>Cold soak</dt><dd>All sensors and the Raspberry Pi initialized after cold exposure, but lab equipment could not reach the full −70 °C target.</dd><dd class="v-flag"><span class="flag flag-warn">Partial</span></dd></div>
         <div><dt>GPS ground accuracy</dt><dd>NEO-M8N and u-blox M10 both produced fixes within ±10 m of a known position.</dd><dd class="v-flag"><span class="flag flag-ok">Pass</span></dd></div>
         <div><dt>Software verification</dt><dd>SPI, I2C, and UART interfaces confirmed; fault handling reviewed.</dd><dd class="v-flag"><span class="flag flag-ok">Pass</span></dd></div>
       </dl>
@@ -150,7 +150,7 @@
       </div>
 
       <div class="reqboard">
-        <p class="reqboard-title">22 system requirements — verification status</p>
+        <p class="reqboard-title">Verification status of 22 system requirements</p>
         <div class="reqbar" role="img" aria-label="Of 22 requirements: 11 verified, 4 partially verified, 7 not verified">
           <span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-ok"></span><span class="r-part"></span><span class="r-part"></span><span class="r-part"></span><span class="r-part"></span><span class="r-no"></span><span class="r-no"></span><span class="r-no"></span><span class="r-no"></span><span class="r-no"></span><span class="r-no"></span><span class="r-no"></span>
         </div>
@@ -160,12 +160,12 @@
       <p>Of 22 system requirements and constraints, 11 were fully verified through ground testing,
       analysis, inspection, or demonstration, and 4 were partially verified to the limit of what
       ground conditions allowed.</p>
-      <p>The two altitude-dependent requirements — altitude achievement and ascent rate — could not
+      <p>The two altitude-dependent requirements, altitude achievement and ascent rate, could not
       be assessed in any form without flying, since both depend entirely on in-flight GPS data.</p>
       <ul>
-        <li><strong>Budget — not met.</strong> Final system cost exceeded the $1,500 limit.</li>
-        <li><strong>Schedule — met.</strong> Built, integrated, and ground-tested inside the 16-week term.</li>
-        <li><strong>Remaining nine constraints — met</strong>, with the system designed to FAA Part 101 and FCC Part 15.</li>
+        <li><strong>Budget: not met.</strong> Final system cost exceeded the $1,500 limit.</li>
+        <li><strong>Schedule: met.</strong> Built, integrated, and ground-tested inside the 16-week term.</li>
+        <li><strong>Remaining nine constraints: met</strong>, with the system designed to FAA Part 101 and FCC Part 15.</li>
       </ul>
 
       <h2><span class="sec-no">7.0</span> What the team would do differently</h2>
@@ -183,7 +183,7 @@
     <div class="dstrip">
       <div>
         <h2>Full report</h2>
-        <p>Design &amp; Verification Report — requirements, trade studies, test procedures, and results.</p>
+        <p>Design &amp; Verification Report with requirements, trade studies, test procedures, and results.</p>
         <p class="file-meta">habsat-report.pdf · 114 pp · student IDs redacted</p>
       </div>
       <div>
@@ -203,8 +203,7 @@
     <div class="footer-grid">
       <div>
         <h2>Om M. Patel</h2>
-        <p>Aerospace engineer — University of South Carolina, B.S. May 2026. Propulsion,
-        aerodynamics, and structures, modeled in software and checked against test data.</p>
+        <p>Aerospace engineer, University of South Carolina, B.S. May 2026.</p>
       </div>
       <div>
         <h3>Pages</h3>
@@ -227,7 +226,6 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Om M. Patel</span>
-      <span>32.7765° N · 79.9311° W</span>
       <span>Open to propulsion, fluids &amp; structures roles</span>
     </div>
   </div>

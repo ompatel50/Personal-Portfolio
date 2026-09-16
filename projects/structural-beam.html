@@ -45,7 +45,7 @@
       <div class="tblock-main">
         <p class="mono-label">Entry 04 <b>//</b> Structures</p>
         <h1>Structural Beam Design &amp; FEA Validation</h1>
-        <p class="tblock-sum">A beam designed against a hard 1 lbf mass limit, CNC machined with a partner institution, and put through three-point bending to check the Abaqus model — which held to within 4.2% of the measured deflection.</p>
+        <p class="tblock-sum">A beam designed against a hard 1 lbf mass limit, CNC machined with a partner institution, and put through three-point bending to check the Abaqus model, which held to within 4.2% of the measured deflection.</p>
       </div>
       <dl class="tblock-meta">
       <div><dt>Term</dt><dd>Fall 2024 · Team project</dd></div>
@@ -70,7 +70,7 @@
 
     <div class="prose">
       <h2><span class="sec-no">1.0</span> Overview</h2>
-      <p>The brief was a beam that carried the required load with a mass under 1 lbf — a constraint
+      <p>The brief was a beam that carried the required load with a mass under 1 lbf, a constraint
       tight enough that the design could not simply be made stronger. The final article came in at
       0.974 lbf with a factor of safety of 3.4, and its measured deflection agreed with the Abaqus
       prediction to within 4.2% at loads up to 6,250 lbf.</p>
@@ -82,8 +82,8 @@
       <p>Because mass could not be read directly during simulation setup, hitting the limit took
       several iterations. After establishing a baseline model with meshing, boundary conditions, and
       loads, the design was revisited repeatedly to trim weight. A series of strategically placed
-      lightening holes in low-stress web regions proved the most effective route — it brought the
-      mass under the threshold without giving up the load path.</p>
+      lightening holes in low-stress web regions proved the most effective route. It brought the mass
+      under the threshold without giving up the load path.</p>
 
       <h2><span class="sec-no">3.0</span> Simulation problems and what was done about them</h2>
       <h3>Dimensional rounding</h3>
@@ -91,8 +91,8 @@
       specification and the model. Every dimension was re-checked against the specification to keep
       the two consistent.</p>
       <h3>Hourglassing</h3>
-      <p>The persistent issue was hourglassing — a numerical artifact producing unrealistic
-      distortion, worst near the supports. Mitigation included refining the mesh and trying
+      <p>The persistent issue was hourglassing, a numerical artifact producing unrealistic
+      distortion that was worst near the supports. Mitigation included refining the mesh and trying
       different meshing techniques and element formulations. The distortion persisted under mesh
       refinement, which is a useful result in itself: it localizes the artifact to the element
       formulation rather than mesh density.</p>
@@ -104,14 +104,14 @@
       <h2><span class="sec-no">4.0</span> Experiment versus simulation</h2>
       <p>Deviation between the finite element results and the physical three-point bending
       measurements was <strong>4.2%</strong> at loads up to 6,250 lbf. In compliance terms, the
-      simulation predicted about 4.8×10⁻⁶ in/lbf against roughly 5.0×10⁻⁶ in/lbf measured — the
+      simulation predicted about 4.8×10⁻⁶ in/lbf against roughly 5.0×10⁻⁶ in/lbf measured, with the
       experimental article deflecting slightly more at every load point.</p>
       <div class="callout">
         <h3>Likely sources of the deviation</h3>
         <ul>
-          <li><strong>Material property variation</strong> — the real material likely differed slightly from the assumed properties</li>
-          <li><strong>Boundary condition assumptions</strong> — the physical test fixture would not have matched the idealized constraints exactly</li>
-          <li><strong>Numerical artifacts</strong> — the hourglassing and rounding issues above would each contribute</li>
+          <li><strong>Material property variation:</strong> the real material likely differed slightly from the assumed properties</li>
+          <li><strong>Boundary condition assumptions:</strong> the physical test fixture would not have matched the idealized constraints exactly</li>
+          <li><strong>Numerical artifacts:</strong> the hourglassing and rounding issues above would each contribute</li>
         </ul>
       </div>
 
@@ -119,8 +119,8 @@
       <ul>
         <li><strong>Factor of safety 3.4</strong> at a final mass of <strong>0.974 lbf</strong> against the strict 1 lbf limit</li>
         <li>FEA deflection validated against physical testing to within <strong>4.2%</strong></li>
-        <li>Physical beam CNC machined through a partner institution — a team effort end to end</li>
-        <li><strong>Manufacturing cost $789.67 against a $600 target — not met.</strong> The mass and strength targets were hit; the cost target was not.</li>
+        <li>Physical beam CNC machined through a partner institution, a team effort end to end</li>
+        <li><strong>Manufacturing cost $789.67 against a $600 target: not met.</strong> The mass and strength targets were hit; the cost target was not.</li>
       </ul>
     </div>
 
@@ -147,8 +147,7 @@
     <div class="footer-grid">
       <div>
         <h2>Om M. Patel</h2>
-        <p>Aerospace engineer — University of South Carolina, B.S. May 2026. Propulsion,
-        aerodynamics, and structures, modeled in software and checked against test data.</p>
+        <p>Aerospace engineer, University of South Carolina, B.S. May 2026.</p>
       </div>
       <div>
         <h3>Pages</h3>
@@ -171,7 +170,6 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Om M. Patel</span>
-      <span>32.7765° N · 79.9311° W</span>
       <span>Open to propulsion, fluids &amp; structures roles</span>
     </div>
   </div>
