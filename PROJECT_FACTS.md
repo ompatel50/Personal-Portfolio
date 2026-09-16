@@ -26,7 +26,8 @@ He has **graduated**. Never write "senior," "graduating May 2026," or
 ## Projects
 
 ### 1. High-Altitude Balloon Flight System (Senior Design, Spring 2026)
-Tools: CATIA V5, Python, Arduino. Role: mechanical design and integration lead.
+Tools: CATIA V5, Python, Arduino. Role: avionics, telemetry, and power subsystem
+lead, driving integration with the structural, thermal, and recovery groups.
 
 Recoverable 30 km payload — structural, thermal, avionics, telemetry, power, and
 recovery subsystems. Fully built, integrated, and ground-tested in 16 weeks.
