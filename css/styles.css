@@ -941,6 +941,16 @@ thead th.num { color: var(--ink-3); font-size: 0.66rem; }
 
 .skill-block { background: var(--bg); padding: 1.6rem 1.7rem; }
 
+/* Three-block variant (resume page): an odd item in a 2-up grid would leave an
+   empty track showing the grid's own background, so the last block spans. */
+.skills-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.skills-grid--3 > :last-child { grid-column: 1 / -1; }
+
+@media (max-width: 640px) {
+  .skills-grid--3 { grid-template-columns: minmax(0, 1fr); }
+  .skills-grid--3 > :last-child { grid-column: auto; }
+}
+
 .skill-block h3 {
   font-family: var(--mono);
   font-size: 0.72rem;
