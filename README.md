@@ -61,10 +61,6 @@ All published PDFs have student ID numbers removed. Keep it that way — the
 team reports carry other people's IDs. There is no electrical report and no
 wind tunnel report; nothing on the site links to either.
 
-**Note:** the five report PDFs above are currently absent from this copy — see
-`assets/PDFS_MISSING.md`. The HTML links them by these exact filenames. Copy
-the originals back into `assets/` before deploying; do not regenerate them.
-
 ## Contact form
 
 Posts to formsubmit.co. Submit the form once yourself to receive the

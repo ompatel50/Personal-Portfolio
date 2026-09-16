@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Resume | Om M. Patel</title>
-<meta name="description" content="Resume of Om M. Patel, aerospace engineer, University of South Carolina '26. Propulsion CFD, aircraft design, FEA, wind tunnel and materials testing, and VARTM composites.">
+<meta name="description" content="Resume of Om M. Patel, aerospace engineer, University of South Carolina '26. Propulsion CFD, structural FEA validated against test, high-altitude balloon systems, and six years of fluid and mechanical systems maintenance.">
 <meta name="author" content="Om M. Patel">
 <meta name="theme-color" content="#0A0E16">
 
 <meta property="og:title" content="Resume | Om M. Patel">
-<meta property="og:description" content="Resume of Om M. Patel, aerospace engineer, University of South Carolina '26. Propulsion CFD, aircraft design, FEA, wind tunnel and materials testing, and VARTM composites.">
+<meta property="og:description" content="Resume of Om M. Patel, aerospace engineer, University of South Carolina '26. Propulsion CFD, structural FEA validated against test, high-altitude balloon systems, and six years of fluid and mechanical systems maintenance.">
 <meta property="og:type" content="website">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0E16'/><rect y='28' width='32' height='4' fill='%23F2B63B'/><text x='16' y='21' font-family='monospace' font-size='14' font-weight='700' fill='%23F2B63B' text-anchor='middle'>OP</text></svg>">
@@ -41,9 +41,9 @@
   <div class="container">
     <p class="mono-label">Curriculum vitae</p>
     <h1 style="font-size:var(--step-4);margin-block:.6rem 1rem">Resume</h1>
-    <p class="hero-thesis" style="margin-bottom:1.6rem">Aerospace engineer with computational
-    experience in propulsion and fluid dynamics and six years of hands-on mechanical and fluid
-    systems maintenance.</p>
+    <p class="hero-thesis" style="margin-bottom:1.6rem">Aerospace engineering graduate with six
+    years of hands-on maintenance and troubleshooting on pressurized fluid, mechanical, and
+    electrical systems, plus project experience across the engineering lifecycle.</p>
     <div class="hero-actions">
       <a href="assets/Om_Patel_Resume.pdf" class="btn btn-primary" download>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -59,11 +59,11 @@
 
     <div class="resume-section">
       <h2><span class="sec-no">1.0</span> Summary</h2>
-      <p style="color:var(--ink-2)">Aerospace engineer with computational experience in propulsion and fluid dynamics and six
-      years of hands-on mechanical and fluid systems maintenance. Work spans reacting-flow CFD,
-      structural FEA validated against physical test, full-vehicle conceptual design, and
-      end-to-end systems engineering on a build-and-test flight project. Seeking a propulsion,
-      fluids, or structures role supporting design, analysis, testing, and integration.</p>
+      <p style="color:var(--ink-2)">Aerospace engineering graduate with six years of hands-on
+      maintenance and troubleshooting on pressurized fluid, mechanical, and electrical systems,
+      with project experience across the engineering lifecycle. Seeking to apply propulsion
+      analysis, CAD, and systems thinking to support propulsion and mechanical design, testing,
+      modeling, and integration.</p>
     </div>
 
     <div class="resume-section">
@@ -71,103 +71,92 @@
       <div class="resume-item">
         <div class="resume-item-head">
           <div>
-            <h3>B.S. Aerospace Engineering</h3>
+            <h3>Bachelor of Science in Aerospace Engineering</h3>
             <p class="resume-sub">University of South Carolina — Columbia, SC</p>
           </div>
-          <span class="resume-date">Graduated May 2026 · GPA 3.25</span>
+          <span class="resume-date">May 2026 · GPA 3.25</span>
         </div>
-        <p class="resume-tools">Coursework: Propulsion Technologies · Thermodynamics · FEA ·
-        Aircraft Design · Compressible Aerodynamics · Flight Dynamics &amp; Controls · Aerospace
-        Structures · Mechanical Vibrations · Manufacturing · Aerospace Laboratory I &amp; II</p>
+        <p class="resume-tools">Relevant coursework: Propulsion Technologies · Thermodynamics ·
+        Finite Element Analysis · Materials · Compressible Aerodynamics · Flight Dynamics and
+        Controls · Aerospace Structures · Mechanical Vibrations · Manufacturing · Aerospace
+        Laboratory I &amp; II</p>
       </div>
     </div>
 
     <div class="resume-section">
-      <h2><span class="sec-no">3.0</span> Professional experience</h2>
+      <h2><span class="sec-no">3.0</span> Projects</h2>
+
       <div class="resume-item">
         <div class="resume-item-head">
           <div>
-            <h3>Maintenance Technician</h3>
-            <p class="resume-sub">EZ-Stop — Ridgeland, SC · promoted from Assistant Maintenance Technician, May 2026</p>
+            <h3><a href="projects/propulsion.html">Rocket, Ramjet, and Resistojet Propulsion Analysis</a></h3>
           </div>
-          <span class="resume-date">June 2020 – Present</span>
+          <span class="resume-date">Fall 2025</span>
         </div>
         <ul>
-          <li>Own diagnosis and repair of fuel delivery, pressure regulation, and facility mechanical systems site-wide, working independently on live equipment</li>
-          <li>Diagnosed and repaired submersible fuel pump failures and fluid delivery line issues, restoring system pressure and flow in a live fueling environment</li>
-          <li>Identified and resolved fuel contamination and water intrusion events; maintained pressure regulation equipment in spec, and reset emergency fuel shutoff systems following trigger events</li>
-          <li>Maintained HVAC, refrigeration, and facility mechanical systems; troubleshot across mechanical, electrical, and fluid subsystems to minimize downtime</li>
+          <li>Built 2D geometries for three propulsion systems (ramjet, rocket, resistojet) in ANSYS Fluent with species transport, finite-rate combustion, and k-ω SST turbulence; confirmed grid convergence over five meshes</li>
+          <li>Ran a 15-case sweep of Mach, propellant, fuel-air ratio, chamber length, and nozzle geometry, reducing exit data to thrust, specific impulse, and TSFC; peak simulated ramjet performance reached 122 kN at 2,492 s I<sub>sp</sub> on hydrogen at Mach 3</li>
+          <li>Diagnosed incomplete methane combustion and excessive Mach 3 inlet shock losses from flow-field contours and recommended a longer combustor and refined inlet lip</li>
         </ul>
+        <p class="resume-tools">ANSYS Fluent, MATLAB</p>
       </div>
-    </div>
-
-    <div class="resume-section">
-      <h2><span class="sec-no">4.0</span> Engineering projects</h2>
 
       <div class="resume-item">
         <div class="resume-item-head">
           <div>
             <h3><a href="projects/habsat.html">High-Altitude Balloon Flight System</a></h3>
-            <p class="resume-sub">Senior design — mechanical design and integration lead</p>
           </div>
           <span class="resume-date">Spring 2026</span>
         </div>
         <ul>
-          <li>Led mechanical design and integration of a recoverable 30 km payload spanning structural, thermal, avionics, telemetry, power, and recovery subsystems; delivered a fully built and integrated flight article in 16 weeks</li>
-          <li>Ran a ground verification campaign spanning a 7-hour endurance and data-logging test, LoRa telemetry range and packet-integrity testing, parachute drop and suspension load testing, cold-soak testing, and dual-GPS accuracy checks</li>
-          <li>Verified 11 of 22 system requirements outright and 4 partially; the two altitude-dependent requirements went unverified after ATC denied airspace access, grounding the launch. Designed to FAA Part 101 and FCC Part 15</li>
+          <li>Executed the full engineering lifecycle on a recoverable 30 km payload: requirements definition, mechanical design, build, qualification testing, and verification, delivering an integrated flight article in 16 weeks</li>
+          <li>Led the avionics, telemetry, and power subsystems and drove their integration with the structural, thermal, and recovery groups, managing procurement and supplier lead times and presenting at multiple formal design reviews</li>
+          <li>Ran ground qualification covering endurance, telemetry range and packet integrity, parachute drop, suspension load, cold-soak, and GPS accuracy testing, verifying 15 of 22 requirements — 11 fully, 4 partially. <strong>HABSAT never flew after ATC denied airspace access.</strong></li>
         </ul>
-        <p class="resume-tools">Tools: CATIA V5, Python, Arduino</p>
-      </div>
-
-      <div class="resume-item">
-        <div class="resume-item-head">
-          <div>
-            <h3><a href="projects/propulsion.html">Multi-System Propulsion CFD Analysis</a></h3>
-            <p class="resume-sub">University of South Carolina · AESP 314</p>
-          </div>
-          <span class="resume-date">Fall 2025</span>
-        </div>
-        <ul>
-          <li>Modeled and simulated three propulsion systems (ramjet, chemical rocket, and resistojet) using 2D reacting-flow geometries, applying k-ω SST turbulence and finite-rate/eddy-dissipation combustion models with mesh-independence verification across five mesh densities</li>
-          <li>Swept Mach number, fuel, mixture ratio, and chamber geometry to isolate cycle sensitivities; quantified thrust, Isp, and TSFC across 15 cases and identified incomplete methane combustion and excessive Mach 3 inlet shock losses from flow-field diagnostics</li>
-        </ul>
-        <p class="resume-tools">Tools: ANSYS Fluent, MATLAB</p>
-      </div>
-
-      <div class="resume-item">
-        <div class="resume-item-head">
-          <div>
-            <h3><a href="projects/aircraft-design.html">General Aviation Aircraft — Full Conceptual Design</a></h3>
-            <p class="resume-sub">University of South Carolina · AESP 415 · design lead</p>
-          </div>
-          <span class="resume-date">Fall 2025</span>
-        </div>
-        <ul>
-          <li>Led full conceptual design of a 4-seat GA aircraft to FAR Part 23 standards, covering mission analysis, propulsion sizing, wing and airfoil design, stability analysis, drag buildup, and 3D CAD modeling</li>
-          <li>Conducted multi-condition propulsion trade study across takeoff, cruise, and climb phases; evaluated and downselected engine candidates based on power-to-weight, fuel efficiency, and certification compatibility</li>
-        </ul>
-        <p class="resume-tools">Tools: CATIA V5, MATLAB, JavaFoil</p>
+        <p class="resume-tools">CATIA V5, Python, Raspberry Pi</p>
       </div>
 
       <div class="resume-item">
         <div class="resume-item-head">
           <div>
             <h3><a href="projects/structural-beam.html">Structural Beam Design and FEA Validation</a></h3>
-            <p class="resume-sub">University of South Carolina · team project</p>
           </div>
           <span class="resume-date">Fall 2024</span>
         </div>
         <ul>
-          <li>Iteratively designed and optimized a structural beam against a strict 1 lbf mass constraint through strategic lightening hole placement, reaching a final mass of 0.974 lbf</li>
-          <li>Collaborated with a partner institution to CNC fabricate the beam; validated FEA deflection against three-point bending data to within 4.2% up to 6,250 lbf, diagnosing hourglassing limits during meshing</li>
+          <li>Designed and iterated a structural beam against a strict 1 lbf mass constraint, using lightening-hole placement to reach a final mass of 0.974 lbf at a factor of safety of 3.4, the highest load capacity in the class</li>
+          <li>Worked alongside the machinist through G-code programming and CNC fabrication, then validated the machined part against Abaqus predictions: deflection matched three-point bending data to within 4.2% up to 6,250 lbf</li>
         </ul>
-        <p class="resume-tools">Tools: Abaqus</p>
+        <p class="resume-tools">Abaqus, CNC machining</p>
+      </div>
+
+      <p style="color:var(--ink-3);font-size:0.9375rem;margin-top:1.4rem">Three more projects —
+      GA aircraft conceptual design, airfoil CFD, and circuit characterization — are in the
+      <a href="projects.html">full project log</a>.</p>
+    </div>
+
+    <div class="resume-section">
+      <h2><span class="sec-no">4.0</span> Experience</h2>
+      <div class="resume-item">
+        <div class="resume-item-head">
+          <div>
+            <h3>Maintenance Technician</h3>
+            <p class="resume-sub">EZ-Stop — Ridgeland, SC</p>
+          </div>
+          <span class="resume-date">June 2020 – Present</span>
+        </div>
+        <ul>
+          <li>Maintain and repair fuel equipment at a 24/7 site: replace nozzles, hoses, breakaway couplings, and filters; troubleshoot dispenser and pump faults; check tanks for water intrusion and escalate work beyond site scope to certified contractors</li>
+          <li>Service building mechanical systems including HVAC, refrigeration, plumbing, and electrical by diagnosing faults, sourcing replacement parts from vendors, and keeping equipment in service</li>
+          <li>Handle most repairs in-house rather than waiting on a service call. Promoted to sole site technician after six years of continuous service while completing a full engineering degree</li>
+        </ul>
       </div>
     </div>
 
     <div class="resume-section">
       <h2><span class="sec-no">5.0</span> Laboratory experience</h2>
+      <p style="color:var(--ink-3);font-size:0.9375rem;margin-bottom:1.4rem">Not on the one-page
+      PDF — included here because the web page has room for it.</p>
       <div class="resume-item">
         <div class="resume-item-head">
           <div>
@@ -200,30 +189,18 @@
 
     <div class="resume-section">
       <h2><span class="sec-no">6.0</span> Skills</h2>
-      <div class="skills-grid">
+      <div class="skills-grid skills-grid--3">
       <div class="skill-block reveal">
-        <h3>Propulsion &amp; fluids</h3>
-        <p>Propulsion system sizing, thermodynamic cycle analysis, reacting flow simulation, combustion modeling, CFD (ANSYS Fluent), porous-media flow (Darcy–Forchheimer), internal and pipe flow, fuel system safing</p>
+        <h3>Design &amp; engineering</h3>
+        <p>Mechanical design, 3D printing, GD&amp;T and 2D drawings, 3D modeling and assembly, pumps and pressure regulators, rocket propulsion, gas and fluid dynamics, FEA, engineering lifecycle and design reviews</p>
       </div>
       <div class="skill-block reveal">
-        <h3>Structures &amp; materials</h3>
-        <p>Stress and deflection analysis, FEA (Abaqus), Euler buckling, modal analysis and damping, structural margins, load path evaluation, tensile and hardness testing</p>
+        <h3>Lab &amp; testing</h3>
+        <p>Pipe flow testing, heat transfer testing, tensile and bending testing, wind tunnel testing, strain gauges and LabVIEW data acquisition, uncertainty analysis</p>
       </div>
       <div class="skill-block reveal">
-        <h3>Testing &amp; instrumentation</h3>
-        <p>Subsonic wind tunnel force-balance testing, pitot-static velocimetry, three-point bending, strain gauges, steady-state and transient thermal measurement, LabVIEW data acquisition, uncertainty analysis with t-distribution confidence intervals</p>
-      </div>
-      <div class="skill-block reveal">
-        <h3>Manufacturing</h3>
-        <p>VARTM composite layup and permeability characterization, CNC machining, GD&amp;T, 2D drawings</p>
-      </div>
-      <div class="skill-block reveal">
-        <h3>CAD &amp; software</h3>
-        <p>CATIA V5, Creo Parametric, SolidWorks, MATLAB/Simulink, Python, LabVIEW, Arduino</p>
-      </div>
-      <div class="skill-block reveal">
-        <h3>Systems engineering</h3>
-        <p>Requirements traceability, verification planning, trade studies, N² interface analysis, risk analysis, FAA Part 101 / FCC Part 15</p>
+        <h3>Software</h3>
+        <p>SolidWorks, Creo, CATIA V5, MATLAB, ANSYS Fluent, Abaqus, Python, LabVIEW, Microsoft Office</p>
       </div>
       </div>
     </div>
@@ -254,13 +231,13 @@
           <li><a href="mailto:omptlsc@gmail.com">omptlsc@gmail.com</a></li>
           <li><a href="tel:+18439400118">(843) 940-0118</a></li>
           <li><a href="https://linkedin.com/in/ompatel50" target="_blank" rel="noopener">linkedin.com/in/ompatel50</a></li>
-          <li class="plain">Columbia, South Carolina</li>
+          <li class="plain">Charleston, South Carolina</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Om M. Patel</span>
-      <span>34.0007° N · 81.0348° W</span>
+      <span>32.7765° N · 79.9311° W</span>
       <span>Open to propulsion, fluids &amp; structures roles</span>
     </div>
   </div>
