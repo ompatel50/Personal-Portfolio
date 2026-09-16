@@ -1,11 +1,11 @@
 /**
- * Om M. Patel — Portfolio
+ * Om M. Patel, Portfolio
  *
  * Design rule: nothing here is required to read or navigate the site.
  * The reveal animation opts in by adding a class to <html>, so if this
  * file fails to load or errors out, every element stays visible. The
  * navigation is plain links with no toggle, and the contact form posts
- * natively — this script only improves the error messages.
+ * natively, so this script only improves the error messages.
  */
 (function () {
   'use strict';

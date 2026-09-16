@@ -45,7 +45,7 @@
       <div class="tblock-main">
         <p class="mono-label">Entry 05 <b>//</b> Aerodynamics</p>
         <h1>Aerodynamic Analysis of NACA Airfoils</h1>
-        <p class="tblock-sum">Three NACA sections swept from −6° to 18° in ANSYS Fluent — including the part where the original coefficients were normalized to the wrong reference area, and how the correction was found and validated.</p>
+        <p class="tblock-sum">Three NACA sections swept from −6° to 18° in ANSYS Fluent, including the part where the original coefficients were normalized to the wrong reference area and how I found and validated the correction.</p>
       </div>
       <dl class="tblock-meta">
       <div><dt>Term</dt><dd>Fall 2024 · AESP 265</dd></div>
@@ -62,8 +62,8 @@
   <div class="container">
 
     <div class="stats reveal">
-      <div><span class="stat-value">0.891</span><span class="stat-label">c<sub>l,max</sub> — NACA 0012</span></div>
-      <div><span class="stat-value">1.418</span><span class="stat-label">c<sub>l,max</sub> — NACA 6418</span></div>
+      <div><span class="stat-value">0.891</span><span class="stat-label">c<sub>l,max</sub> NACA 0012</span></div>
+      <div><span class="stat-value">1.418</span><span class="stat-label">c<sub>l,max</sub> NACA 6418</span></div>
       <div><span class="stat-value">~12°</span><span class="stat-label">STALL ONSET</span></div>
       <div><span class="stat-value">3.4×10⁴</span><span class="stat-label">REYNOLDS NUMBER</span></div>
     </div>
@@ -95,14 +95,14 @@
       <h2><span class="sec-no">2.5</span> The correction</h2>
       <p>The originally reported coefficients were normalized against Fluent's default 1 m²
       reference area instead of the true ~25 mm chord. Every coefficient was rescaled by a factor
-      of <strong>40.1</strong>, then validated independently against the Reynolds number — which
-      works out to <strong>Re ≈ 3.4×10⁴</strong>, consistent with the corrected magnitudes.</p>
+      of <strong>40.1</strong>, then validated it independently against the Reynolds number, which
+      works out to <strong>Re ≈ 3.4×10⁴</strong> and lines up with the corrected magnitudes.</p>
       <div class="table-wrap">
         <table>
           <caption>Corrected maximum lift coefficients</caption>
           <thead><tr><th>Section</th><th class="num">c<sub>l,max</sub></th><th>Behavior at high incidence</th></tr></thead>
           <tbody>
-            <tr><td>NACA 0012</td><td class="num">0.891</td><td>Separates earliest — sharp lift breakdown past ~12°</td></tr>
+            <tr><td>NACA 0012</td><td class="num">0.891</td><td>Separates earliest, sharp lift breakdown past ~12°</td></tr>
             <tr><td>NACA 4412</td><td class="num">1.289</td><td>Similar stall onset with better lift characteristics</td></tr>
             <tr><td>NACA 6418</td><td class="num">1.418</td><td>Retains attached flow to 18°</td></tr>
           </tbody>
@@ -110,8 +110,8 @@
       </div>
       <div class="callout callout-bad">
         <h3>Not quoted: moment coefficients</h3>
-        <p>The recorded moment coefficients are unreliable — Fluent's default moment center is the
-        origin, not the quarter chord — and they remain uncorrected. They are deliberately not
+        <p>The recorded moment coefficients are unreliable because Fluent's default moment center
+        is the origin, not the quarter chord, and they remain uncorrected. They are deliberately not
         reported anywhere on this page.</p>
       </div>
 
@@ -123,11 +123,11 @@
       <p><strong>Flow field.</strong> At low incidence all three sections showed attached flow with
       little separation. Higher up the sweep, the 0012 separated early above 12°, the 4412 delayed
       separation to about 15°, and the 6418 stayed attached at 18°. Pressure contours showed strong
-      upper-surface suction peaks, highest on the 6418 — consistent with its lift advantage.</p>
+      upper-surface suction peaks, highest on the 6418, which lines up with its lift advantage.</p>
       <p><strong>Against thin airfoil theory.</strong> At low angles all three agreed closely with
       thin airfoil theory. Deviations grew with incidence as viscous effects and separation took
-      over — expected, since thin airfoil theory is inviscid. The 6418 tracked theory across the
-      widest range.</p>
+      over, which is expected since thin airfoil theory is inviscid. The 6418 tracked theory across
+      the widest range.</p>
 
       <h2><span class="sec-no">4.0</span> Conclusions</h2>
       <ul>
@@ -160,8 +160,7 @@
     <div class="footer-grid">
       <div>
         <h2>Om M. Patel</h2>
-        <p>Aerospace engineer — University of South Carolina, B.S. May 2026. Propulsion,
-        aerodynamics, and structures, modeled in software and checked against test data.</p>
+        <p>Aerospace engineer, University of South Carolina, B.S. May 2026.</p>
       </div>
       <div>
         <h3>Pages</h3>
@@ -184,7 +183,6 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Om M. Patel</span>
-      <span>32.7765° N · 79.9311° W</span>
       <span>Open to propulsion, fluids &amp; structures roles</span>
     </div>
   </div>
