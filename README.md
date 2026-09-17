@@ -56,10 +56,11 @@ Netlify. See `DEPLOY.md` for first-time setup.
 | `propulsion-report.pdf` | LaTeX rebuild of the AESP 314 final project |
 | `habsat-report.pdf` | AESP 428 Design & Verification Report, student IDs redacted |
 | `aircraft-design-report.pdf` | AESP 415 Conceptual Design Report, student IDs redacted |
+| `electrical-systems-report.pdf` | ELCT 221 RC/RL transients and passive filter design |
 
 All published PDFs have student ID numbers removed. Keep it that way — the
-team reports carry other people's IDs. There is no electrical report and no
-wind tunnel report; nothing on the site links to either.
+team reports carry other people's IDs. There is no wind tunnel report; nothing
+on the site links to one.
 
 ## Contact form
 

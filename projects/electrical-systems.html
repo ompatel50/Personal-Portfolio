@@ -45,13 +45,14 @@
       <div class="tblock-main">
         <p class="mono-label">Entry 06 <b>//</b> Electrical</p>
         <h1>Circuit Characterization &amp; Filter Design</h1>
-        <p class="tblock-sum">RC and RL turn-on transients measured against theory, then low-pass, high-pass, and RLC bandpass filters designed and validated transfer-curve by transfer-curve against LTspice.</p>
+        <p class="tblock-sum">RC and RL turn-on transients measured against theory, then low-pass, high-pass, and RLC bandpass filters swept from 1 kHz to 500 kHz and compared against analytical transfer functions and LTspice.</p>
       </div>
       <dl class="tblock-meta">
       <div><dt>Term</dt><dd>Spring 2024 · ELCT 221</dd></div>
-      <div><dt>Tools</dt><dd>LTspice, ADALM2000</dd></div>
+      <div><dt>Tools</dt><dd>Digilent Analog Discovery 3, WaveForms, LTspice</dd></div>
       <div><dt>Filters</dt><dd>Low-pass, high-pass, RLC bandpass</dd></div>
-      <div><dt>Status</dt><dd><span class="flag flag-na">No report PDF</span></dd></div>
+      <div><dt>Status</dt><dd><span class="flag flag-ok">Cross-validated to 0.01 dB</span></dd></div>
+      <div><dt>Report</dt><dd><a href="../assets/electrical-systems-report.pdf" download>electrical-systems-report.pdf</a></dd></div>
       </dl>
     </div>
   </div>
@@ -64,56 +65,139 @@
       <div><span class="stat-value">9.573 <small>µs</small></span><span class="stat-label">MEASURED RC τ</span></div>
       <div><span class="stat-value">8.969 <small>µs</small></span><span class="stat-label">MEASURED RL τ</span></div>
       <div><span class="stat-value">15.92 <small>kHz</small></span><span class="stat-label">CUTOFF FREQUENCY</span></div>
-      <div><span class="stat-value">0.159</span><span class="stat-label">BANDPASS Q</span></div>
+      <div><span class="stat-value">0.98</span><span class="stat-label">MEASURED BANDPASS Q</span></div>
     </div>
 
     <div class="prose">
       <h2><span class="sec-no">1.0</span> Overview</h2>
-      <p>Two linked projects: characterizing RC and RL circuits, then designing and validating
-      filters built from the same components. Every experimental measurement was checked against
-      both hand calculation and SPICE simulation.</p>
+      <p>Two linked projects run on the same three passive components: a 100 Ω resistor, a
+      0.1 µF capacitor, and a 1 mH inductor. The first characterized the step response of RC and
+      RL circuits and pulled their time constants off oscilloscope captures. The second built RC
+      low-pass, RC high-pass, and series RLC bandpass filters, measured their frequency response
+      from 1 kHz to 500 kHz on a network analyzer, and compared the result against analytical
+      transfer functions and LTspice.</p>
+      <p>The useful result is the one that links the two. The capacitance implied by the RC time
+      constant, applied with no further fitting, predicts the filter stopbands to within 0.01 dB.</p>
 
-      <h2><span class="sec-no">2.0</span> RC and RL characterization</h2>
+      <h2><span class="sec-no">2.0</span> Transient response</h2>
       <h3>RC circuit</h3>
       <p>With R = 100 Ω and C = 0.1 µF, the theoretical time constant is:</p>
       <p class="eq">τ = RC = 100 × 0.1×10⁻⁶ = 10 µs</p>
       <p>The turn-on transient across the resistor follows V<sub>R</sub>(t) = V<sub>s</sub>·e<sup>−t/τ</sup>,
       so at t = τ, V<sub>R</sub> = 0.368 V<sub>s</sub>.</p>
-      <p><strong>Measured: τ = 9.573 µs</strong> against 10 µs theoretical, a 4.3% difference
-      attributable to component tolerance and measurement uncertainty.</p>
+      <p><strong>Measured: τ = 9.573 µs</strong> against 10 µs nominal, a 4.3% shortfall. That sits
+      inside the ±10% tolerance typical of a ceramic capacitor. Solving τ = RC with R at nominal
+      gives an <strong>effective capacitance of 95.7 nF</strong>, about 4% below its marking.</p>
       <h3>RL circuit</h3>
       <p>With R = 100 Ω and L = 1 mH:</p>
       <p class="eq">τ = L/R = 0.001 / 100 = 10 µs</p>
       <p>Here the transient follows V<sub>R</sub>(t) = V<sub>s</sub>·(1 − e<sup>−t/τ</sup>), giving
       0.632 V<sub>s</sub> at t = τ.</p>
-      <p><strong>Measured: τ = 8.969 µs.</strong> The larger gap is consistent with inductor winding
-      resistance, which the ideal model omits.</p>
+      <p><strong>Measured: τ = 8.969 µs</strong>, a 10.3% shortfall. That one has a physical cause.
+      A real inductor carries winding resistance in series with its inductance, so the loop time
+      constant is L/(R + R<sub>series</sub>), not L/R:</p>
+      <p class="eq">R<sub>total</sub> = L/τ = 1×10⁻³ / 8.969×10⁻⁶ = 111.5 Ω</p>
+      <p>That is about 11.5 Ω beyond the resistor, plausible for a small through-hole 1 mH
+      inductor. Breadboard contact resistance and inductor tolerance push the same direction and
+      cannot be separated from this data alone.</p>
+      <p>The RL capture recorded both channels at the second cursor, so the threshold could be
+      checked directly: 631.9 / 995.1 = 0.635 against a target of 0.632. The cursor sat very
+      slightly past one time constant, putting the true value nearer 8.89 µs. That correction is
+      smaller than the gap to theory and changes no conclusion.</p>
 
       <h2><span class="sec-no">3.0</span> Filter design</h2>
       <h3>RC low-pass and high-pass</h3>
       <p class="eq">f<sub>c</sub> = 1 / (2πRC) = 15.92 kHz</p>
-      <p>The low-pass passes signals below 15.92 kHz and attenuates above; the high-pass, built from
-      the same component values, gives the complementary response with the transition at the same
-      cutoff. Transfer curves were measured on a network analyzer and compared against LTspice.</p>
+      <p>Both filters share that corner, sit 3 dB down at it, and roll off at 20 dB/decade beyond
+      it. The low-pass phase is −45° at the corner and the high-pass is +45°.</p>
       <h3>RLC bandpass</h3>
-      <p>With R = 100 Ω, L = 1 mH, C = 0.1 µF:</p>
-      <p class="eq">f<sub>R</sub> = 1 / (2π√(LC)) = 15,915 Hz&nbsp;&nbsp;·&nbsp;&nbsp;B = 100 kHz&nbsp;&nbsp;·&nbsp;&nbsp;Q = 0.159</p>
-      <p>The low Q is worth noting: with a 100 Ω series resistance the bandwidth far exceeds the
-      resonant frequency, so this circuit is a broad bandpass rather than a selective one.</p>
+      <p>With R = 100 Ω, L = 1 mH, C = 0.1 µF, the reactances cancel at resonance:</p>
+      <p class="eq">f<sub>0</sub> = 1 / (2π√(LC)) = 15,915 Hz</p>
+      <p class="eq">B = R / (2πL) = 15,915 Hz&nbsp;&nbsp;·&nbsp;&nbsp;Q = f<sub>0</sub> / B = (1/R)√(L/C) = 1.00</p>
+      <div class="callout">
+        <h3>Watch the 2π</h3>
+        <p>R/L on its own is the half-power bandwidth in <strong>radians per second</strong>, not in
+        hertz. Dropping the 2π turns B into 100 kHz and Q into 0.159, which understates the filter
+        by a factor of 2π. The correct figures are B = 15.92 kHz and Q = 1.00.</p>
+      </div>
+      <p>Because f<sub>0</sub> = B here, the symmetric shortcut f<sub>0</sub> ± B/2 would give 7.96
+      and 23.87 kHz. That shortcut only holds at high Q. The exact half-power frequencies are:</p>
+      <p class="eq">f<sub>c1,2</sub> = f<sub>0</sub>[√(1 + 1/4Q²) ± 1/2Q] = 9.84 kHz, 25.75 kHz</p>
+      <p>Their geometric mean is f<sub>0</sub>, as it has to be for a second-order bandpass.</p>
 
-      <h2><span class="sec-no">4.0</span> Simulation and validation</h2>
-      <p>All filters were simulated in LTspice, and the simulated transfer curves matched the bench
-      measurements:</p>
-      <ul>
-        <li>Magnitude and phase curves agreed between simulation and experiment</li>
-        <li>Cutoff frequencies aligned within measurement tolerance</li>
-        <li>Roll-off and resonance behavior were predicted accurately</li>
-      </ul>
+      <h2><span class="sec-no">4.0</span> Measured against theory</h2>
+      <p>The network analyzer swept a 1 V sine from 1 kHz to 500 kHz in 151 logarithmic steps. All
+      three filters followed their predicted shapes across the full range.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Bandpass characteristic frequencies, from digitized phase crossings</caption>
+          <thead><tr><th>Quantity</th><th>Phase</th><th class="num">Theory</th><th class="num">Measured</th></tr></thead>
+          <tbody>
+            <tr><td>Lower half-power f<sub>c1</sub></td><td>+45°</td><td class="num">9.84 kHz</td><td class="num">9.93 kHz</td></tr>
+            <tr><td>Resonance f<sub>0</sub></td><td>0°</td><td class="num">15.92 kHz</td><td class="num">16.12 kHz</td></tr>
+            <tr><td>Upper half-power f<sub>c2</sub></td><td>−45°</td><td class="num">25.75 kHz</td><td class="num">26.32 kHz</td></tr>
+            <tr><td>Bandwidth B</td><td></td><td class="num">15.92 kHz</td><td class="num">16.39 kHz</td></tr>
+            <tr><td>Quality factor Q</td><td></td><td class="num">1.00</td><td class="num">0.98</td></tr>
+          </tbody>
+        </table>
+        <p class="table-note">Phase crossings were digitized from exported screenshots, so they carry
+        a reading resolution of roughly ±3%.</p>
+      </div>
+      <p>Measured Q of 0.98 agrees with the design value of 1.00, which makes this a broadband
+      filter rather than a selective one. The geometric mean of the two measured half-power points,
+      √(9.93 × 26.32) = 16.17 kHz, agrees with the measured zero crossing, which is an internal
+      check on the digitization.</p>
 
       <div class="callout">
-        <h3>Report</h3>
-        <p>No report PDF is available for this project, so no download is linked here. The values
-        above are the recorded results.</p>
+        <h3>One correction explains the stopband</h3>
+        <p>The 95.7 nF effective capacitance from the RC transient was applied to the filter
+        predictions with no further adjustment. At the stopband cursors, where output is most
+        sensitive to capacitance, the nominal value misses by 0.36 to 0.38 dB. The effective value
+        closes that to <strong>within 0.01 dB</strong> on both the high-pass and the bandpass, even
+        though it came from a separate experiment on a different day and the bandpass also involves
+        the inductor. Two instruments measuring two different physical quantities agree on the same
+        component value.</p>
+      </div>
+
+      <h2><span class="sec-no">5.0</span> What the simulation missed</h2>
+      <p>Each filter was simulated in LTspice with an AC analysis from 1 kHz to 500 kHz. The
+      directive was <code>.ac dec 1 1k 500k</code>, which evaluates the circuit at only 1 kHz,
+      10 kHz, 100 kHz and 500 kHz and joins those four points with straight lines. The visible
+      kinks in every simulated trace fall exactly on the decade frequencies.</p>
+      <p>That matters most for the bandpass filter: the highest simulated point is −2.85 dB at
+      10 kHz, so the plot never shows the 0 dB peak at 15.9 kHz. The models were correct and the
+      simulated values match the analytical transfer functions at all four sample frequencies. The
+      sweep resolution was the problem, not the circuit. Simulation resolution has to be chosen for
+      the feature being studied rather than left at a setting that happens to draw a plausible curve.</p>
+
+      <h2><span class="sec-no">6.0</span> Above 200 kHz</h2>
+      <p>The low-pass phase does not settle at −90°. It bottoms out near −79° around 170 kHz, then
+      climbs back to −71.4° at 490 kHz, and the magnitude there sits 0.5 dB above the effective-C
+      prediction. Both are consistent with a small resistance in series with the capacitor from ESR,
+      lead resistance, and breadboard contacts, which adds a zero to the response. Adding 1.0 Ω in
+      series gives −29.13 dB and −71.6° at 490.55 kHz, within 0.2 dB and 0.2° of measurement. A
+      parasitic that size is invisible at low frequency and dominant once the capacitor's reactance
+      falls to a few ohms. It sets a practical floor of roughly −30 dB on what this breadboard filter
+      can attenuate.</p>
+
+      <h2><span class="sec-no">7.0</span> Limitations</h2>
+      <ul>
+        <li><strong>Component values were not measured.</strong> R, L and C were taken at nominal markings. The effective capacitance and implied series resistance are inferred from the data, not read off an LCR meter.</li>
+        <li><strong>One capture per measurement.</strong> Each time constant comes from a single cursor placement on a single capture, so repeatability was not quantified.</li>
+        <li><strong>Coarse simulation sweep.</strong> One point per decade cannot resolve the bandpass peak or the shape of any curve between decades.</li>
+        <li><strong>Digitized phase data.</strong> Phase crossings came from screenshots rather than exported data files, limiting resolution to roughly ±3%.</li>
+        <li><strong>Loading and parasitics.</strong> Generator output impedance, scope input capacitance, capacitor ESR and inductor self-capacitance were not modeled explicitly.</li>
+      </ul>
+    </div>
+
+    <div class="dstrip">
+      <div>
+        <h2>Full report</h2>
+        <p>Transient captures, measured transfer curves, the LTspice comparison, and the cross-validation table.</p>
+        <p class="file-meta">electrical-systems-report.pdf · 17 pp</p>
+      </div>
+      <div>
+        <a class="btn btn-primary" href="../assets/electrical-systems-report.pdf" download>Download report (PDF)</a>
       </div>
     </div>
 
