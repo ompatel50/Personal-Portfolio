@@ -721,6 +721,16 @@ sub, sup { font-size: 0.72em; line-height: 0; }
 
 .prose ul li strong { color: var(--ink); }
 
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius);
+  padding: 0.1em 0.4em;
+}
+
 .eq {
   font-family: var(--mono);
   font-size: 0.9rem;

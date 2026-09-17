@@ -126,14 +126,38 @@ The originally reported coefficients were normalized against Fluent's default
   center is the origin, not the quarter chord) — do not quote them
 
 ### 6. Circuit Characterization and Filter Design (Spring 2024, ELCT 221)
-Tools: LTspice, ADALM2000.
+Tools: Digilent Analog Discovery 3 (WaveForms v3.21.3), LTspice. Lab partner on
+the build; the report names them on the title page.
 
-- RC: R = 100 Ω, C = 0.1 µF, theoretical τ = 10 µs, **measured 9.573 µs**
-- RL: R = 100 Ω, L = 1 mH, theoretical τ = 10 µs, **measured 8.969 µs**
+- RC: R = 100 Ω, C = 0.1 µF, theoretical τ = 10 µs, **measured 9.573 µs** (−4.3%)
+- RL: R = 100 Ω, L = 1 mH, theoretical τ = 10 µs, **measured 8.969 µs** (−10.3%)
 - Low-pass and high-pass cutoff: 15.92 kHz
-- RLC bandpass: f_R = 15,915 Hz, B = 100 kHz, Q = 0.159
+- RLC bandpass, design: f_0 = 15,915 Hz, **B = 15,915 Hz (15.92 kHz)**, **Q = 1.00**
+- RLC bandpass, measured: f_0 = 16.12 kHz, B = 16.39 kHz, **Q = 0.98**, half-power
+  points 9.93 kHz and 26.32 kHz (phase crossings, ±3% reading resolution)
 
-**No report PDF is available for this project.** Do not link a download.
+**Correction — B and Q were previously wrong here.** This file used to state
+B = 100 kHz and Q = 0.159. Those came from treating R/L as a bandwidth in hertz,
+but R/L is in radians per second. The correct bandwidth is B = R/(2πL) = 15,915 Hz,
+which gives Q = 1.00. The report states this explicitly. Do not reintroduce the
+old figures.
+
+Other results from the report:
+- Effective capacitance implied by the RC transient: **95.7 nF**, about 4% below
+  its marking. Applied with no further fitting, it brings predicted high-pass and
+  bandpass stopband magnitude to **within 0.01 dB** of measurement, where the
+  nominal value misses by 0.36 to 0.38 dB.
+- RL transient implies R_total = 111.5 Ω, so roughly 11.5 Ω of winding resistance.
+  Cursor check (631.9/995.1 = 0.635 vs 0.632 target) puts the true RL τ nearer 8.89 µs.
+- Network analyzer swept 1 V sine, 1 kHz to 500 kHz, 151 logarithmic steps.
+- LTspice was run at `.ac dec 1 1k 500k`, one point per decade. That hid the
+  bandpass peak: the highest simulated point is −2.85 dB at 10 kHz. The models
+  were correct; the sweep resolution was not.
+- Above 200 kHz the low-pass phase climbs back to −71.4° at 490 kHz, consistent
+  with about 1.0 Ω in series with the capacitor. Practical attenuation floor
+  roughly −30 dB.
+
+**Report available:** `assets/electrical-systems-report.pdf` (17 p).
 
 ---
 
@@ -194,18 +218,20 @@ studies, N² interface analysis, risk analysis, FAA Part 101 / FCC Part 15
 | `assets/propulsion-report.pdf` | Rebuilt propulsion report, 15 p |
 | `assets/cfd-report.pdf` | Rebuilt airfoil CFD report, 10 p |
 | `assets/structural-beam-report.pdf` | Rebuilt beam report, 8 p |
+| `assets/electrical-systems-report.pdf` | ELCT 221 circuits report, 17 p |
 | `assets/headshot.jpg` | Portrait |
 
 **All published PDFs have student ID numbers removed.** The HABSAT and aircraft
 design reports are team documents carrying other students' names and IDs. Never
 republish an unredacted version, and never add report PDFs from any other source.
 
-There is no electrical report and no wind tunnel report. Do not link to either.
+There is no wind tunnel report. Do not link to one.
 
 ---
 
 ## Note on this copy
 
-The five report PDFs are absent from this bundle — see `assets/PDFS_MISSING.md`.
-Keep the links and filenames exactly as they are; the files get restored before
-deployment.
+All report PDFs are present in `assets/`. The five that were missing from the
+original slim bundle have been restored, and the circuits report was added in
+September 2026. `assets/PDFS_MISSING.md` is left over from that bundle and no
+longer describes the repository.
